@@ -25,9 +25,11 @@ app.get('/js/javascript.js',(req,res) =>{
 app.get('/users', db.getUsers)
 app.get('/editUser/:id?', db.getUserById)
 app.post('/editUser',urlencodeParser,db.createUser)
+app.get('/deleteUser/:id',db.deleteUser, (req,res) =>{
+    res.redirect('users')
+})
 
 //Start Server
 app.listen(8089,(req,res) => {
     console.log('Servidor está funcionando.')
 })
-

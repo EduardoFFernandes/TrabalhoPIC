@@ -38,7 +38,9 @@ const createUser = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`User added with ID: ${results.rows[0].id}`)
+//    alert(`User added with ID: ${results.rows[0].id}`)
+
+    response.status(201).render('users')
   })
 }
 
@@ -60,13 +62,13 @@ const updateUser = (request, response) => {
 
 const deleteUser = (request, response) => {
   const id = parseInt(request.params.id)
-
-  pool.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
-    if (error) {
-      throw error
+    pool.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
+      if (error) {
+        throw error
+      }  
+      response.status(200)
     }
-    response.status(200).send(`User deleted with ID: ${id}`)
-  })
+  )  
 }
 
 module.exports = {
