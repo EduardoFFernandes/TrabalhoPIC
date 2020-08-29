@@ -10,7 +10,6 @@ const urlencodeParser = bodyParser.urlencoded({extended:false})
 app.engine('handlebars',handlebars({defaultLayout: 'main'}))
 app.set('view engine','handlebars')
 
-
 //Routes and Templates
 // app.get('/id:id?',(req,res) =>{
 //     // res.send('Essa é minha pagina inicial.')
