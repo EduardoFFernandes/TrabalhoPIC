@@ -2,8 +2,8 @@ const { Pool } = require('pg')
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'api',
-  password: '123456',
+  database: 'postgres',
+  password: '32599344',
   port: 5432,
 })
 const getUsers = (request, response) => {
@@ -12,7 +12,7 @@ const getUsers = (request, response) => {
       throw error
     }
     // response.status(200).json(results.rows)
-    response.status(200).render('users',{users:results.rows})
+    response.status(200).render('users',{data:results.rows})
   })
 }
 

@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const handlebars = require('express-handlebars')
 const app = express()
 const db = require('./database')
-const urlencodeParser = bodyParser.urlencoded({extend:false})
+const urlencodeParser = bodyParser.urlencoded({extended:false})
 
 //Template engine
 app.engine('handlebars',handlebars({defaultLayout: 'main'}))
