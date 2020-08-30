@@ -16,11 +16,32 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Prerequisites
 
-What things you need to install the software and how to install them.
+Prérequisitos para esse código funcionar:
 
-```
-Examples
-```
+vsCode
+npm install nodemon --save
+npm install express --save
+npm install bodyParser --save
+npm install handlebars --save
+npm install pg --save
+
+com Postgres 12 instalado crie um Database e com os seus dados configure o arquivo configDatabase.js:
+
+user: 'nome do Usuario',
+host: 'localhost',
+database: 'nome do Database',
+password: 'senha',
+port: 5432,
+
+e crie essa tabela:
+
+CREATE TABLE users(
+    id SERIAL,
+    name VARCHAR(255),
+    email VARCHAR(255)
+);
+
+Nesse primeiro momento eu fiz apenas um CRUD simples com node.js, então a estrutura para fazermos nosso projeto ja foi criada. Proximo passo é decidir como sera nosso banco de dados.
 
 ## Deployment
 
