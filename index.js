@@ -1,11 +1,11 @@
 const express = require('express')
+
 const bodyParser = require('body-parser')
-// const mysql = require('mysql')
 const handlebars = require('express-handlebars')
 const app = express()
-const db = require('./database')
-const urlencodeParser = bodyParser.urlencoded({extended:false})
+app.use(bodyParser.urlencoded( {extended: true} ));
 
+require('./routes.js')(app)
 //Template engine
 app.engine('handlebars',handlebars({defaultLayout: 'main'}))
 app.set('view engine','handlebars')
@@ -16,18 +16,7 @@ app.set('view engine','handlebars')
 //     // res.sendFile(projectDir + '/view/index.html')
 //     res.render('index',{id:req.params.id})
 // })
-app.get('/css/style.css', (req,res) =>{
-    res.sendFile(__dirname + '/css/style.css')
-})
-app.get('/js/javascript.js',(req,res) =>{
-    res.sendFile(__dirname + '/js/javascript.js')
-})
-app.get('/users', db.getUsers)
-app.get('/editUser/:id?', db.getUserById)
-app.post('/editUser',urlencodeParser,db.createUser)
-app.get('/deleteUser/:id',db.deleteUser, (req,res) =>{
-    res.redirect('users')
-})
+
 
 //Start Server
 app.listen(8089,(req,res) => {
