@@ -18,11 +18,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 Prérequisitos para esse código funcionar:
 
-vsCode
-npm install nodemon --save
-npm install express --save
-npm install bodyParser --save
-npm install handlebars --save
+vsCode,
+npm install nodemon --save,
+npm install express --save,
+npm install bodyParser --save,
+npm install handlebars --save,
 npm install pg --save
 
 com Postgres 12 instalado crie um Database e com os seus dados configure o arquivo configDatabase.js:
