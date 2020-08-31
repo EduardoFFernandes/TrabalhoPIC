@@ -73,7 +73,7 @@ h1 {
 	height:35px;
 }
 .form-style-5 .number {
-	background: #1abc9c;
+	background: #160b46;
 	color: #fff;
 	height: 30px;
 	width: 30px;
@@ -94,19 +94,19 @@ h1 {
 	padding: 19px 39px 18px 39px;
 	color: #FFF;
 	margin: 0 auto;
-	background: #1abc9c;
+	background: #1e1255;
 	font-size: 18px;
 	text-align: center;
 	font-style: normal;
 	width: 100%;
-	border: 1px solid #16a085;
+	border: 1px solid #160b46;
 	border-width: 1px 1px 3px;
 	margin-bottom: 10px;
 }
 .form-style-5 input[type="submit"]:hover,
 .form-style-5 input[type="button"]:hover
 {
-	background: #109177;
+	background: #342c58;
 }
 table {
 	border-collapse: collapse;
