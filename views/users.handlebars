@@ -1,8 +1,13 @@
+<div class="create-panel">
+    <a href="/editUser"><i class="far fa-plus-square fa-3x"></i></a>
+    <a href="/editUser"><i class="fas fa-table fa-3x"></i></a>
+</div>
 <table>
     <thead>
         <tr>
             <th>Name</th>
             <th>Email</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -11,13 +16,12 @@
             <td>{{name}}</td>
             <td>{{email}}</td>
             <td>
-                <a href="/deleteUser/{{id}}">Delete</a>
-            </td>
-            <td>
-                <a href="/updateUser/{{id}}">Edit</a>
+                <a href="/deleteUser/{{id}}"><i class="far fa-trash-alt fa-3x"></i></a>
+                <a href="/updateUser/{{id}}"><i class="far fa-edit fa-3x"></i></a>
             </td>
         </tr>
         {{/each}}
     </tbody>
 </table>
-<a href="/editUser">Create</a>
+
+

@@ -1,6 +1,6 @@
 a {
     font-family: 'Times New Roman', Times, serif;
-    color: #5f3c8d;
+    color: #160b46;
 }
 h1 {
     font-family: fantasy;
@@ -107,4 +107,33 @@ h1 {
 .form-style-5 input[type="button"]:hover
 {
 	background: #109177;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+  }
+  
+th, td {
+text-align: left;
+padding: 8px;
+}
+
+table i {
+	padding: 2px;
+}
+table th {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 22px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.create-panel {
+	display: flex;
+	justify-content: flex-end;
+}
+.create-panel i {
+	padding: 5px;
 }
