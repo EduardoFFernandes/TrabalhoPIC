@@ -1,5 +1,7 @@
+<div class="title-panel"><h1>Tabela de Usuários</h1></div>
+<div class="home-panel"><a href="/users"><i class="fas fa-home fa-3x"></i></a></div>
 <div id="grid"></div>
-{{data}}
+
 <script src="https://code.datagridxl.com/datagridxl.js"></script>
 <script>
 makeAjaxRequest("/datatableData", function(data){
@@ -7,7 +9,8 @@ makeAjaxRequest("/datatableData", function(data){
 	console.log("is our data valid?", parsedData);
 
 	new DataGridXL("grid", {
-		data: parsedData
+		data: parsedData,
+		defaultColWidth: 200
 	});
 
 });
