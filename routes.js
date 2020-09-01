@@ -31,5 +31,5 @@ module.exports = function(app){
 
     app.get('/datatableData', userController.getUsersDatatable)
 
-
+    app.post('/updateDatatable', userController.updateDatatable)
 }

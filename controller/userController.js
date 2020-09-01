@@ -12,7 +12,7 @@ userCrudController.getUsers = (request, response) => {
 }
 
 userCrudController.getUsersDatatable = (request, response) => {
-  pool.query('SELECT name,email FROM users', (error, results) => {
+  pool.query('SELECT id,name,email FROM users', (error, results) => {
     if (error) {
       throw error
     }
@@ -55,8 +55,7 @@ userCrudController.updateUser = (request, response) => {
         throw error
       }
       response.status(200).redirect('/users')
-    }
-  )
+    })
 }
 
 userCrudController.deleteUser = (request, response) => {
@@ -67,8 +66,20 @@ userCrudController.deleteUser = (request, response) => {
       } 
     console.log("Successfully deleted.")
     response.status(200).redirect('/users')
-    }
-  )  
+    })  
+}
+
+userCrudController.updateDatatable = (request,response) => {
+  const { id, name, email } = request.body
+  pool.query(
+    'UPDATE users SET name = $1, email = $2 WHERE id = $3',
+    [name, email, id],
+    (error, results) => {
+      if (error) {
+        throw error
+      }
+    response.status(200)
+  })
 }
 
 module.exports = userCrudController

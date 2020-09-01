@@ -5,15 +5,15 @@
 <script src="https://code.datagridxl.com/datagridxl.js"></script>
 <script>
 makeAjaxRequest("/datatableData", function(data){
-	var parsedData = JSON.parse(data);
-	console.log("is our data valid?", parsedData);
-
-	new DataGridXL("grid", {
+	var parsedData = JSON.parse(data)
+	var grid = new DataGridXL("grid", {
 		data: parsedData,
 		defaultColWidth: 200
-	});
-
-});
+	})
+  grid.events.on('cellvaluechange', (event) => {
+    documentchangeHandler(event, grid)
+  });
+})
 
 function makeAjaxRequest(path, callback){
 
@@ -25,10 +25,21 @@ function makeAjaxRequest(path, callback){
       console.log('The request failed!');
     }
   };
-
   xhr.open('GET', path);
   xhr.send();
+}
 
+function documentchangeHandler (event, grid) {
+
+  var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+  var theUrl = '/updateDatatable';
+  xmlhttp.open('POST', theUrl);
+  xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  xmlhttp.setRequestHeader('Content-Type', 'application/json');
+  xmlhttp.send(JSON.stringify(grid.getData()[event.rowIds[0] - 1]))
+
+  // console.log(event)
+  // console.log(grid.getData()[event.rowIds[0] - 1])
 }
 
 </script>
