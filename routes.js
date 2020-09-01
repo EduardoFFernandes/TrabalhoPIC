@@ -25,6 +25,11 @@ module.exports = function(app){
 
     app.get('/deleteUser/:id', userController.deleteUser)
     
+    app.get('/datatableView', (req, res) => {
+        res.render('datatable')
+    })
+
+    app.get('/datatableData', userController.getUsersDatatable)
 
 
 }
