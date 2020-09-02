@@ -37,9 +37,6 @@ function documentchangeHandler (event, grid) {
   xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   xmlhttp.setRequestHeader('Content-Type', 'application/json');
   xmlhttp.send(JSON.stringify(grid.getData()[event.rowIds[0] - 1]))
-
-  // console.log(event)
-  // console.log(grid.getData()[event.rowIds[0] - 1])
 }
 
 </script>

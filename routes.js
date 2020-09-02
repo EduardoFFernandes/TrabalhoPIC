@@ -42,8 +42,8 @@ module.exports = function(app){
     app.get('/js/controls/wijmo.grid.min.js',(req,res) =>{
         res.sendFile(__dirname + '/js/controls/wijmo.grid.min.js')
     })
-    app.get('js/controls/wijmo.grid.search.min.js',(req,res) =>{
-        res.sendFile(__dirname + 'js/controls/wijmo.grid.search.min.js')
+    app.get('/js/controls/wijmo.grid.search.min.js',(req,res) =>{
+        res.sendFile(__dirname + '/js/controls/wijmo.grid.search.min.js')
     })
     app.get('/css/wijmo.min.css',(req,res) =>{
         res.sendFile(__dirname + '/css/wijmo.min.css')

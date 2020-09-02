@@ -1,20 +1,31 @@
+<div class="title-panel"><h1>Tabela de Usuários</h1></div>
+<div class="home-panel"><a href="/users"><i class="fas fa-home fa-3x"></i></a></div>
+<div id="searchElement"></div>
 <div id="flexgrid"></div>
 
-<script src="js/controls/wijmo.grid.min.js"></script>
-<script src="js/controls/wijmo.grid.search.min.js"></script>
+<script src="/js/controls/wijmo.grid.min.js"></script>
+<script src="/js/controls/wijmo.grid.search.min.js"></script>
 <script>
     var parsedData = {}
-    
-    var flexgrid = new wijmo.grid.FlexGrid('#flexgrid')
+    // create FlexGrid 
+    var flexgrid = new wijmo.grid.FlexGrid('#flexgrid', {
+        cellEditEnded: (grid,event) => {
+            documentchangeHandler(event)
+            console.log({"newData" : flexgrid.getCellData(event.row, event.col), 'oldData' : event._data})
+            
+        }
+    })
     // create FlexGridSearch and connect it to the grid
-    var products = [
-        {'name' : 'toy', 'price':20, 'units':30}
-    ]
-    makeAjaxRequest("/datatableData", function(data){
-        parsedData = JSON.parse(data)
-        flexgrid.itemsSource = parsedData
+    var search = new wijmo.grid.search.FlexGridSearch('#searchElement', {
+        grid: flexgrid
     })
 
+    makeAjaxRequest("/datatableData", (data) => {
+        parsedData = JSON.parse(data)
+        flexgrid.itemsSource = parsedData
+        flexgrid.columns[0].visible = false
+        flexgrid.autoSizeColumns()
+    })
 
 function makeAjaxRequest(path, callback){
 
@@ -29,13 +40,17 @@ function makeAjaxRequest(path, callback){
     xhr.open('GET', path);
     xhr.send();
 }
+
+function documentchangeHandler (event, grid) {
+  var toSendJson = {"newData" : flexgrid.getCellData(event.row, event.col),
+                'oldData' : event._data,
+                'columnName': flexgrid.getColumn(event.col).name,
+                'id': flexgrid.getCellData(event.row, 0)}
+  var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+  var theUrl = '/updateDatatable';
+  xmlhttp.open('POST', theUrl);
+  xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  xmlhttp.setRequestHeader('Content-Type', 'application/json');
+  xmlhttp.send(JSON.stringify(toSendJson))
+}
 </script> 
-
-
-    {{!-- makeAjaxRequest("/datatableData", function(data){
-        var parsedData = JSON.parse(data)
-        var flexgrid = new wijmo.grid.FlexGrid('#flexgrid')
-        flexgrid.itemSource = parsedData
-    })
-
- --}}

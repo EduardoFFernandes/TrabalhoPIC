@@ -70,10 +70,10 @@ userCrudController.deleteUser = (request, response) => {
 }
 
 userCrudController.updateDatatable = (request,response) => {
-  const { id, name, email } = request.body
+  const { id, columnName, newData } = request.body
   pool.query(
-    'UPDATE users SET name = $1, email = $2 WHERE id = $3',
-    [name, email, id],
+    'UPDATE users SET ' + columnName + ' = $1 WHERE id = $2',
+    [newData, id],
     (error, results) => {
       if (error) {
         throw error
