@@ -1,0 +1,28 @@
+{
+  "name": "trabalhosi",
+  "version": "1.0.0",
+  "description": "Trabalho de SI",
+  "main": "index.js",
+  "dependencies": {
+    "@grapecity/wijmo.purejs.all": "^5.20202.699",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.3",
+    "wijmo": "^5.20202.699"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduardoFFernandes/TrabalhoSI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EduardoFFernandes/TrabalhoSI/issues"
+  },
+  "homepage": "https://github.com/EduardoFFernandes/TrabalhoSI#readme"
+}

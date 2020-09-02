@@ -1,0 +1,41 @@
+<div id="flexgrid"></div>
+
+<script src="js/controls/wijmo.grid.min.js"></script>
+<script src="js/controls/wijmo.grid.search.min.js"></script>
+<script>
+    var parsedData = {}
+    
+    var flexgrid = new wijmo.grid.FlexGrid('#flexgrid')
+    // create FlexGridSearch and connect it to the grid
+    var products = [
+        {'name' : 'toy', 'price':20, 'units':30}
+    ]
+    makeAjaxRequest("/datatableData", function(data){
+        parsedData = JSON.parse(data)
+        flexgrid.itemsSource = parsedData
+    })
+
+
+function makeAjaxRequest(path, callback){
+
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            callback(xhr.response);
+        } else {
+            console.log('The request failed!');
+        }
+    };
+    xhr.open('GET', path);
+    xhr.send();
+}
+</script> 
+
+
+    {{!-- makeAjaxRequest("/datatableData", function(data){
+        var parsedData = JSON.parse(data)
+        var flexgrid = new wijmo.grid.FlexGrid('#flexgrid')
+        flexgrid.itemSource = parsedData
+    })
+
+ --}}

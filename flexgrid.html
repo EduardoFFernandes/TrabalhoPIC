@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexGrid</title>
+    <script src="js/controls/wijmo.min.js"></script>
+    <link rel="stylesheet" href="css/wijmo.min.css">
+
+    <script src="js/controls/wijmo.grid.min.js"></script>
+</head>
+<body>
+    <div id="flexgrid"></div>
+
+    <script>
+        var flexgrid = new wijmo.grid.FlexGrid('#flexgrid')
+
+        var products = [
+            {'name' : 'toy', 'price':20, 'units':30}
+        ]
+
+        flexgrid.itemsSource = products
+    </script>
+</body>
+</html>
