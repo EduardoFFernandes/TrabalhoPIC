@@ -7,7 +7,7 @@ userCrudController.getUsers = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).render('users',{data:results.rows})
+    response.status(200).render('./user/users',{data:results.rows})
   })
 }
 
@@ -26,7 +26,7 @@ userCrudController.getUserById = (request, response) => {
       if (error) {
           throw error
       }
-      response.status(200).render('updateUser',{data:results.rows})
+      response.status(200).render('./user/updateUser',{data:results.rows})
     })
 }
 

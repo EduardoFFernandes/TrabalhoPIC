@@ -1,4 +1,8 @@
 var userController = require("./controller/userController.js");
+var pacienteController = require("./controller/pacienteController");
+var enderecoController = require("./controller/enderecoController");
+var hospitalController = require("./controller/hospitalController");
+var medicamentoController = require("./controller/medicamentoController");
 module.exports = function(app){
     
     app.get('/css/style.css', (req,res) =>{
@@ -18,7 +22,7 @@ module.exports = function(app){
     app.post('/updateUser/:id?', userController.updateUser)
 
     app.get('/editUser', (req, res) => {
-        res.render('editUser')
+        res.render('./user/editUser')
     })
 
     app.post('/editUser', userController.createUser)
@@ -34,7 +38,7 @@ module.exports = function(app){
     app.post('/updateDatatable', userController.updateDatatable)
 
     app.get('/wijmo', (req,res) =>{
-        res.render('wijmo')
+        res.render('./user/wijmo')
     })
     app.get('/js/controls/wijmo.min.js',(req,res) =>{
         res.sendFile(__dirname + '/js/controls/wijmo.min.js')
@@ -48,5 +52,11 @@ module.exports = function(app){
     app.get('/css/wijmo.min.css',(req,res) =>{
         res.sendFile(__dirname + '/css/wijmo.min.css')
     })
+
+    app.get('/endereco', (req, res) => {
+        res.render('./endereco/createEndereco')
+    })
+
+    app.get('/endereco/:id?', enderecoController.getEnderecoById)
     
 }
