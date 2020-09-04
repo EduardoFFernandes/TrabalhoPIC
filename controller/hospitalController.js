@@ -16,6 +16,17 @@ hospitalCrudController.getAllHospital = (request, response) => {
     })
 }
 
+hospitalCrudController.getAllHospitalAJAX = (request, response) => {
+  pool.query(
+      'SELECT * FROM '+ tableName +' ORDER BY nome'
+  , (error, results) => {
+    if (error) {
+        throw error
+    }
+    response.status(200).send(results.rows)
+  })
+}
+
 hospitalCrudController.getHospitalById = (request, response) => {
   const id = parseInt(request.params.id)
     pool.query('SELECT * FROM '+ tableName +' WHERE id = $1', [id], (error, results) => {

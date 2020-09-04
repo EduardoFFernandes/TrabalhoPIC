@@ -1,0 +1,105 @@
+<div class="title-panel"><h1>Adicione um Medicamento</h1></div>
+<div class="home-panel"><a href="/list-medicamento"><i class="fas fa-home fa-3x"></i></a></div>
+<div class="form-style-5">
+    <form id="pacienteForm" action="/create-medicamento" method="post">
+        <fieldset>
+
+            <input type="file" id="fileElem" multiple accept="image/*">
+            <a href="#" id="fileSelect">Select some files</a> 
+            <div id="fileList">
+                <p>No files selected!</p>
+            </div>
+
+            <select id="hospital-dropdown" name="locality" ></select>
+            <input type="hidden" name="id_endereco" id="id_endereco">
+            <input type="hidden" name="descricao" id="descricao">
+            <textarea name="descricaoTextarea" id="descricaoTextarea" 
+            cols="30" rows="10" placeholder="Descrição do medicamento *"></textarea>
+            <label for="start">Data do exame:</label>
+
+            <input type="date" id="exame_data" name="exame_data"
+                min="1999-01-01" max="2030-12-31">
+
+            <input type="submit" value="Apply" />
+        </fieldset>
+    </form>
+</div>
+<script>
+    let dropdown = document.getElementById('hospital-dropdown');
+    dropdown.length = 0;
+
+    let defaultOption = document.createElement('option');
+    defaultOption.text = 'Escolha um hospital';
+    defaultOption.disabled = true
+
+    dropdown.add(defaultOption);
+    dropdown.selectedIndex = 0;
+
+    const url = '/list-hospitalAJAX';
+
+    const request = new XMLHttpRequest();
+    request.open('GET', url, true);
+
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 300) {
+            const data = JSON.parse(request.responseText);
+            let option;
+            for (let i = 0; i < data.length; i++) {
+                option = document.createElement('option');
+                option.text = data[i].nome;
+                option.value = data[i].id;
+                dropdown.add(option);
+            }
+        } else {
+            console.log('The request failed!');
+        }   
+    }
+    request.onerror = function() {
+        console.error('An error occurred fetching the JSON from ' + url);
+    };
+    request.send();
+
+
+    document.getElementById('pacienteForm').onsubmit = function() {
+        document.getElementById('id_endereco').value = document.getElementById('endereco-dropdown').value
+        document.getElementById("descricao").value = document.getElementById("descricaoTextarea").value
+    }
+
+    const fileSelect = document.getElementById("fileSelect"),
+    fileElem = document.getElementById("fileElem"),
+    fileList = document.getElementById("fileList");
+
+    fileSelect.addEventListener("click", function (e) {
+    if (fileElem) {
+        fileElem.click();
+    }
+    e.preventDefault(); // prevent navigation to "#"
+    }, false);
+
+    fileElem.addEventListener("change", handleFiles, false); 
+
+    function handleFiles() {
+        if (!this.files.length) {
+            fileList.innerHTML = "<p>No files selected!</p>";
+        } else {
+            fileList.innerHTML = "";
+            const list = document.createElement("ul");
+            fileList.appendChild(list);
+            for (let i = 0; i < this.files.length; i++) {
+                const li = document.createElement("li");
+                list.appendChild(li);
+                
+                const img = document.createElement("img");
+                img.src = URL.createObjectURL(this.files[i]);
+                img.height = 60;
+                img.onload = function() {
+                URL.revokeObjectURL(this.src);
+                }
+                li.appendChild(img);
+                const info = document.createElement("span");
+                info.innerHTML = this.files[i].name + ": " + this.files[i].size + " bytes";
+                li.appendChild(info);
+            }
+        }
+    }
+</script>

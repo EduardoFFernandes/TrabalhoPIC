@@ -80,18 +80,19 @@ module.exports = function(app){
     app.get('/create-hospital', (req, res) => {
         res.render('./hospital/createHospital')
     })
+    app.get('/list-hospitalAJAX', hospitalController.getAllHospitalAJAX)
     app.post('/create-hospital', hospitalController.createHospital)
     app.get('/delete-hospital/:id', hospitalController.deleteHospital)
     app.get('/edit-hospital/:id?', hospitalController.getHospitalById)
     app.post('/edit-hospital/:id?', hospitalController.updateHospital)
 
-    // //paciente Routes
-    // app.get('/list-paciente', pacienteController.getAllPaciente)
-    // app.get('/create-paciente', (req, res) => {
-    //     res.render('./paciente/createPaciente')
-    // })
-    // app.post('/create-paciente', pacienteController.createPaciente)
-    // app.get('/delete-paciente/:id', pacienteController.deletePaciente)
-    // app.get('/edit-paciente/:id?', pacienteController.getPacienteById)
-    // app.post('/edit-paciente/:id?', pacienteController.updatePaciente)
+    //paciente Routes
+    app.get('/list-paciente', pacienteController.getAllPaciente)
+    app.get('/create-paciente', (req, res) => {
+        res.render('./paciente/createPaciente')
+    })
+    app.post('/create-paciente', pacienteController.createPaciente)
+    app.get('/delete-paciente/:id', pacienteController.deletePaciente)
+    app.get('/edit-paciente/:id?', pacienteController.getPacienteById)
+    app.post('/edit-paciente/:id?', pacienteController.updatePaciente)
 }
