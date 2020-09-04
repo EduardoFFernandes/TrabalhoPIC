@@ -10,7 +10,7 @@ CREATE TABLE public.endereco (
 	CONSTRAINT endereco_pkey PRIMARY KEY (id)
 );
 CREATE TABLE public.hospital (
-	id int8 NOT NULL,
+	id bigserial NOT NULL,
 	nome varchar(255) NULL,
 	id_endereco int8 NOT NULL,
 	CONSTRAINT hospital_pkey PRIMARY KEY (id)

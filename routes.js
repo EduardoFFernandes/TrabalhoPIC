@@ -53,10 +53,45 @@ module.exports = function(app){
         res.sendFile(__dirname + '/css/wijmo.min.css')
     })
 
-    app.get('/endereco', (req, res) => {
+
+    //endereco Routes
+    app.get('/list-endereco', enderecoController.getAllEndereco)
+    app.get('/create-endereco', (req, res) => {
         res.render('./endereco/createEndereco')
     })
+    app.get('/list-enderecoAJAX', enderecoController.getAllEnderecoAJAX)
+    app.post('/create-endereco', enderecoController.createEndereco)
+    app.get('/delete-endereco/:id', enderecoController.deleteEndereco)
+    app.get('/edit-endereco/:id?', enderecoController.getEnderecoById)
+    app.post('/edit-endereco/:id?', enderecoController.updateEndereco)
 
-    app.get('/endereco/:id?', enderecoController.getEnderecoById)
-    
+    //medicamento Routes
+    app.get('/list-medicamento', medicamentoController.getAllMedicamento)
+    app.get('/create-medicamento', (req, res) => {
+        res.render('./medicamento/createMedicamento')
+    })
+    app.post('/create-medicamento', medicamentoController.createMedicamento)
+    app.get('/delete-medicamento/:id', medicamentoController.deleteMedicamento)
+    app.get('/edit-medicamento/:id?', medicamentoController.getMedicamentoById)
+    app.post('/edit-medicamento/:id?', medicamentoController.updateMedicamento)
+
+    //hospital Routes
+    app.get('/list-hospital', hospitalController.getAllHospital)
+    app.get('/create-hospital', (req, res) => {
+        res.render('./hospital/createHospital')
+    })
+    app.post('/create-hospital', hospitalController.createHospital)
+    app.get('/delete-hospital/:id', hospitalController.deleteHospital)
+    app.get('/edit-hospital/:id?', hospitalController.getHospitalById)
+    app.post('/edit-hospital/:id?', hospitalController.updateHospital)
+
+    // //paciente Routes
+    // app.get('/list-paciente', pacienteController.getAllPaciente)
+    // app.get('/create-paciente', (req, res) => {
+    //     res.render('./paciente/createPaciente')
+    // })
+    // app.post('/create-paciente', pacienteController.createPaciente)
+    // app.get('/delete-paciente/:id', pacienteController.deletePaciente)
+    // app.get('/edit-paciente/:id?', pacienteController.getPacienteById)
+    // app.post('/edit-paciente/:id?', pacienteController.updatePaciente)
 }

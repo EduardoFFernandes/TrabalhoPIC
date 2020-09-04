@@ -44,7 +44,6 @@ userCrudController.createUser = (request, response) => {
 }
 
 userCrudController.updateUser = (request, response) => {
-  // const id = parseInt(request.params.id)
   const { id, name, email } = request.body
 
   pool.query(

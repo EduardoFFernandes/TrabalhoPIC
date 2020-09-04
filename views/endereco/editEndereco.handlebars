@@ -1,6 +1,9 @@
+<div class="title-panel"><h1>Atualize o Endereço</h1></div>
+<div class="home-panel"><a href="/list-endereco"><i class="fas fa-home fa-3x"></i></a></div>
 <div class="form-style-5">
-    <form action="/editUser" method="post">
+    <form id="enderecoForm" action="/editUser" method="post">
         <fieldset>
+            {{#each data}}
             <legend><span class="number">1</span> Endereço</legend>
             <input type="hidden" name="id" id="id" value="{{id}}">
             <input type="text" name="endereco" 
@@ -8,6 +11,7 @@
             <input type="number" name="cep" 
             id="cep" placeholder="Seu CEP *" value="{{cep}}">
             <input type="submit" value="Apply" />
+            {{/each}}
         </fieldset>
     </form>
 </div>
