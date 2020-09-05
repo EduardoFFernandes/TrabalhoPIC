@@ -33,13 +33,7 @@ database: 'nome do Database',
 password: 'senha',
 port: 5432,
 
-e crie essa tabela:
-
-CREATE TABLE users(
-    id SERIAL,
-    name VARCHAR(255),
-    email VARCHAR(255)
-);
+Rode o script
 
 Nesse primeiro momento eu fiz apenas um CRUD simples com node.js, então a estrutura para fazermos nosso projeto ja foi criada. Proximo passo é decidir como sera nosso banco de dados.
 

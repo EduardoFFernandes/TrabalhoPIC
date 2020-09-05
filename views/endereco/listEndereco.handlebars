@@ -1,0 +1,27 @@
+<div class="create-panel">
+    <a href="/create-endereco"><i class="far fa-plus-square fa-3x"></i></a>
+    <a href="/wijmo"><i class="fas fa-table fa-3x"></i></a>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Endereço</th>
+            <th>CEP</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{endereco}}</td>
+            <td>{{cep}}</td>
+            <td>
+                <a href="/delete-endereco/{{id}}"><i class="trash far fa-trash-alt fa-3x"></i></a>
+                <a href="/edit-endereco/{{id}}"><i class="far fa-edit fa-3x"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+

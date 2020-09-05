@@ -7,12 +7,12 @@ userCrudController.getUsers = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).render('users',{data:results.rows})
+    response.status(200).render('./user/users',{data:results.rows})
   })
 }
 
 userCrudController.getUsersDatatable = (request, response) => {
-  pool.query('SELECT name,email FROM users', (error, results) => {
+  pool.query('SELECT id,name,email FROM users', (error, results) => {
     if (error) {
       throw error
     }
@@ -26,7 +26,7 @@ userCrudController.getUserById = (request, response) => {
       if (error) {
           throw error
       }
-      response.status(200).render('updateUser',{data:results.rows})
+      response.status(200).render('./user/updateUser',{data:results.rows})
     })
 }
 
@@ -44,7 +44,6 @@ userCrudController.createUser = (request, response) => {
 }
 
 userCrudController.updateUser = (request, response) => {
-  // const id = parseInt(request.params.id)
   const { id, name, email } = request.body
 
   pool.query(
@@ -55,8 +54,7 @@ userCrudController.updateUser = (request, response) => {
         throw error
       }
       response.status(200).redirect('/users')
-    }
-  )
+    })
 }
 
 userCrudController.deleteUser = (request, response) => {
@@ -67,8 +65,20 @@ userCrudController.deleteUser = (request, response) => {
       } 
     console.log("Successfully deleted.")
     response.status(200).redirect('/users')
-    }
-  )  
+    })  
+}
+
+userCrudController.updateDatatable = (request,response) => {
+  const { id, columnName, newData } = request.body
+  pool.query(
+    'UPDATE users SET ' + columnName + ' = $1 WHERE id = $2',
+    [newData, id],
+    (error, results) => {
+      if (error) {
+        throw error
+      }
+    response.status(200)
+  })
 }
 
 module.exports = userCrudController
