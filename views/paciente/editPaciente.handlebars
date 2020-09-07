@@ -1,61 +1,137 @@
-<div class="title-panel"><h1>Atualize o Hospital</h1></div>
-<div class="home-panel"><a href="/list-hospital"><i class="fas fa-home fa-3x"></i></a></div>
+<div class="title-panel"><h1>Atualize o Paciente</h1></div>
+<div class="home-panel"><a href="/list-paciente"><i class="fas fa-home fa-3x"></i></a></div>
 <div class="form-style-5">
-    <form id="hospitalForm" action="/edit-hospital" method="post">
+    <form id="pacienteForm" action="/edit-paciente" method="post">
         <fieldset>
             {{#each data}}
-            <legend><span class="number">1</span> Hospital</legend>
             <input type="hidden" name="id" id="id" value="{{id}}">
-            <input type="text" name="nome" 
-            id="nome" placeholder="Nome do hospital *" value="{{nome}}">
-            <select id="endereco-dropdown" name="locality" ></select>
-            <input type="hidden" name="id_endereco" id="id_endereco" value="{{id_endereco}}">
+            <div style="display: flex; justify-content:space-between;">
+                <div class="col-6">
+                    <label for="identificador">Identificador:</label>
+                    <input type="text" name="identificador" id="identificador" value="{{identificador}}">
+                    <label for="exame_data">Data do exame:</label>
+                    <input type="date" id="exame_data" name="exame_data"
+                    min="1999-01-01" max="2030-12-31" value="{{exame_data}}">
+                    <label for="relatorio_data">Data do relatório:</label>
+                    <input type="date" id="relatorio_data" name="relatorio_data"
+                    value="{{relatorio_data}}" disabled>
+                </div>
+                <div class="col-6" id="fileContainer">
+                    <label for="imgExame">Raio-x do Exame:</label>
+                    <img id="imgExame" height="180" width="160"> 
+                    <div>
+                        <input type="file" id="fileElem" accept="image/*">
+                        <label for="fileElem">choose a file</label>
+                    </div>
+                </div>
+            </div>
+            <label for="hospital_dropdown">Escolha o hospital:</label>
+            <select id="hospital_dropdown" name="hospital_dropdown" ></select>
+
+            <label for="medicamento_dropdown">Escolha o medicamento:</label>
+            <select id="medicamento_dropdown" name="medicamento_dropdown" ></select>
+            <textarea name="descricaoTextarea" id="descricaoTextarea" 
+            cols="30" rows="10" placeholder="Descrição do paciente *"></textarea>
+            
+            <input type="hidden" name="img_pulmao" id="img_pulmao" value="{{img_pulmao}}">
+            <input type="hidden" name="id_hospital" id="id_hospital" value="{{id_hospital}}">
+            <input type="hidden" name="id_medicamento" id="id_medicamento" value="{{id_medicamento}}">
+            <input type="hidden" name="descricao" id="descricao" value="{{descricao}}">
             <input type="submit" value="Apply" />
             {{/each}}
         </fieldset>
     </form>
 </div>
+
 <script>
-    var number = parseInt(document.getElementById('id_endereco').value);
-    let dropdown = document.getElementById('endereco-dropdown');
-    dropdown.length = 0;
+    let fileElem = document.getElementById("fileElem");
+    fileElem.addEventListener("change", handleFiles, false); 
+    
+    //Dropdown Hospital
+    let dropdownHospital = document.getElementById('hospital_dropdown');
+    dropdownHospital.length = 0;
 
-    let defaultOption = document.createElement('option');
-    defaultOption.text = 'Escolha um Endereco';
-    defaultOption.disabled = true
+    let defaultOptionHospital = document.createElement('option');
+    defaultOptionHospital.text = 'Select Hospital';
+    defaultOptionHospital.value = ''
+    defaultOptionHospital.disabled = true
 
-    dropdown.add(defaultOption);
-    dropdown.selectedIndex = 0;
+    dropdownHospital.add(defaultOptionHospital);
+    dropdownHospital.selectedIndex = 0;
 
-    const url = '/list-enderecoAJAX';
+    //Dropdown Mediamento 
+    let dropdownMedicamento = document.getElementById('medicamento_dropdown');
+    dropdownMedicamento.length = 0;
 
-    const request = new XMLHttpRequest();
-    request.open('GET', url, true);
+    let defaultOptionMedicamento = document.createElement('option');
+    defaultOptionMedicamento.text = 'Select Medicamento';
+    defaultOptionMedicamento.value = ''
+    defaultOptionMedicamento.disabled = true
 
-    request.onload = function() {
-        if (request.status >= 200 && request.status < 300) {
-            const data = JSON.parse(request.responseText);
+    dropdownMedicamento.add(defaultOptionMedicamento);
+    dropdownMedicamento.selectedIndex = 0;
+
+    //Request Hospitais
+    const requestHospital = new XMLHttpRequest();
+    requestHospital.open('GET', '/list-hospitalAJAX', true);
+
+    requestHospital.onload = function() {
+        if (requestHospital.status >= 200 && requestHospital.status < 300) {
+            const data = JSON.parse(requestHospital.responseText);
             let option;
             for (let i = 0; i < data.length; i++) {
                 option = document.createElement('option');
-                option.text = data[i].endereco;
+                option.text = data[i].nome;
                 option.value = data[i].id;
-                dropdown.add(option);
-                if(data[i].id == number) {
-                    dropdown.selectedIndex = i + 1
-                }
+                dropdownHospital.add(option);
+            }
+        } else {
+            console.log('The requestHospital failed!');
+        }   
+    }
+    requestHospital.onerror = function() {
+        console.error('An error occurred fetching the JSON from ' + url);
+    };
+    requestHospital.send();
+
+    //Request Medicamentos
+    const requestMedicamento = new XMLHttpRequest();
+    requestMedicamento.open('GET', '/list-medicamentoAJAX', true);
+
+    requestMedicamento.onload = function() {
+        if (requestMedicamento.status >= 200 && requestMedicamento.status < 300) {
+            const data = JSON.parse(requestMedicamento.responseText);
+            let option;
+            for (let i = 0; i < data.length; i++) {
+                option = document.createElement('option');
+                option.text = data[i].nome;
+                option.value = data[i].id;
+                dropdownMedicamento.add(option);
             }
         } else {
             console.log('The request failed!');
         }   
     }
-    request.onerror = function() {
+    requestMedicamento.onerror = function() {
         console.error('An error occurred fetching the JSON from ' + url);
     };
-    request.send();
+    requestMedicamento.send();
 
+    document.getElementById('hospital_dropdown').value = document.getElementById('id_hospital').value
+    document.getElementById('medicamento_dropdown').value = document.getElementById('id_medicamento').value
+    document.getElementById("descricaoTextarea").value = document.getElementById("descricao").value
+   
+    // Use createObjectURL to make a URL for the blob
+    var image = new Image();
+    image.src = document.getElementById('img_pulmao').value;
+    image.height = 180;
+    image.width = 160;
+    document.getElementById('fileContainer').children[1].replaceWith(image)
 
-    document.getElementById('hospitalForm').onsubmit = function() {
-        document.getElementById('id_endereco').value = document.getElementById('endereco-dropdown').value
+    document.getElementById('pacienteForm').onsubmit = function() {
+        document.getElementById('id_hospital').value = document.getElementById('hospital_dropdown').value
+        document.getElementById('id_medicamento').value = document.getElementById('medicamento_dropdown').value
+        document.getElementById("descricao").value = document.getElementById("descricaoTextarea").value
     }
+
 </script>

@@ -70,6 +70,7 @@ module.exports = function(app){
     app.get('/create-medicamento', (req, res) => {
         res.render('./medicamento/createMedicamento')
     })
+    app.get('/list-medicamentoAJAX', medicamentoController.getAllMedicamentoAJAX)
     app.post('/create-medicamento', medicamentoController.createMedicamento)
     app.get('/delete-medicamento/:id', medicamentoController.deleteMedicamento)
     app.get('/edit-medicamento/:id?', medicamentoController.getMedicamentoById)

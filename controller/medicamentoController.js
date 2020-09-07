@@ -11,6 +11,15 @@ medicamentoCrudController.getAllMedicamento = (request, response) => {
     })
 }
 
+medicamentoCrudController.getAllMedicamentoAJAX = (request, response) => {
+  pool.query('SELECT * FROM '+ tableName +' ORDER BY id', (error, results) => {
+    if (error) {
+        throw error
+    }
+    response.status(200).send(results.rows)
+  })
+}
+
 medicamentoCrudController.getMedicamentoById = (request, response) => {
   const id = parseInt(request.params.id)
     pool.query('SELECT * FROM '+ tableName +' WHERE id = $1', [id], (error, results) => {

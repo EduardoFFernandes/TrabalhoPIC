@@ -26,14 +26,31 @@ pacienteCrudController.getPacienteById = (request, response) => {
       if (error) {
           throw error
       }
+      var date = results.rows[0].exame_data
+      var dateString = date.toISOString()
+      dateString = dateString.substring(0,dateString.lastIndexOf('T'))
+      results.rows[0].exame_data = dateString
+     
+      var date2 = results.rows[0].relatorio_data 
+      dateString = date2.toISOString()
+      dateString = dateString.substring(0,dateString.lastIndexOf('T'))
+      results.rows[0].relatorio_data = dateString
+      
       response.status(200).render('./paciente/editPaciente',{data:results.rows})
     })
 }
 
 pacienteCrudController.createPaciente = (request, response) => {
-  const { nome, cep } = request.body
+  const { identificador, img_pulmao, id_hospital, id_medicamento, descricao, exame_data} = request.body
+  var date = new Date()
+  var date2 = new Date(exame_data)
+  date2.setHours(date2.getHours() + 3)
+ 
 
-  pool.query('INSERT INTO '+ tableName +' (nome, cep) VALUES ($1, $2) RETURNING id', [nome, cep], (error, results) => {
+  pool.query('INSERT INTO '+ tableName +' (identificador, img_pulmao,	id_hospital, id_medicamento,	descricao,	exame_data,	relatorio_data)' +
+   'VALUES ($1, $2, $3, $4, $5, $6, $7) ', 
+   [identificador, img_pulmao, id_hospital, id_medicamento, descricao, date2, date], 
+   (error, results) => {
     if (error) {
       throw error
     }
@@ -42,11 +59,16 @@ pacienteCrudController.createPaciente = (request, response) => {
 }
 
 pacienteCrudController.updatePaciente = (request, response) => {
-  const { id, nome, cep } = request.body
+  const { id, identificador, img_pulmao, id_hospital, id_medicamento, descricao, exame_data} = request.body
+  var date = new Date()
+  var date2 = new Date(exame_data)
+  date2.setHours(date2.getHours() + 3)
 
   pool.query(
-    'UPDATE '+ tableName +' SET Paciente = $1, cep = $2 WHERE id = $3',
-    [nome, cep, id],
+    'UPDATE '+ tableName + ' (identificador, img_pulmao,	id_hospital, id_medicamento,	descricao,	exame_data,	relatorio_data)' +
+    ' VALUES ($2, $3, $4, $5, $6, $7, $8) ' +
+    ' WHERE id = $1', 
+    [ id, identificador, img_pulmao, id_hospital, id_medicamento, descricao, date2, date ],
     (error, results) => {
       if (error) {
         throw error

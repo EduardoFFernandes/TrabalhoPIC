@@ -21,6 +21,7 @@ CREATE TABLE public.medicamento (
 	descricao text NULL,
 	CONSTRAINT medicamento_pkey PRIMARY KEY (id)
 );
+
 CREATE TABLE public.paciente (
 	id bigserial NOT NULL,
 	identificador varchar(255) NOT NULL,
@@ -29,14 +30,12 @@ CREATE TABLE public.paciente (
 	descricao text NULL,
 	exame_data timestamp NOT NULL,
 	relatorio_data timestamp NOT NULL,
+	id_medicamento int8 NULL,
 	CONSTRAINT paciente_pkey PRIMARY KEY (id)
 );
-CREATE TABLE public.rl_paciente_medicamento (
-	id_paciente int8 NOT NULL,
-	id_medicamento int8 NOT NULL
-);
+-- public.paciente foreign keys
 
-ALTER TABLE public.rl_paciente_medicamento ADD CONSTRAINT tb_medicamento_rl_paciente_medicamento FOREIGN KEY (id_medicamento) REFERENCES medicamento(id);
-ALTER TABLE public.rl_paciente_medicamento ADD CONSTRAINT tb_paciente_rl_paciente_medicamento FOREIGN KEY (id_paciente) REFERENCES paciente(id);
+
 ALTER TABLE public.paciente ADD CONSTRAINT tb_paciente_tb_hospital FOREIGN KEY (id_hospital) REFERENCES hospital(id);
+ALTER TABLE public.paciente ADD CONSTRAINT tb_paciente_tb_medicamento FOREIGN KEY (id_medicamento) REFERENCES medicamento(id);
 ALTER TABLE public.hospital ADD CONSTRAINT tb_hospital_tb_endereco FOREIGN KEY (id_endereco) REFERENCES endereco(id);
