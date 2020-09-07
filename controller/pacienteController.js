@@ -65,8 +65,8 @@ pacienteCrudController.updatePaciente = (request, response) => {
   date2.setHours(date2.getHours() + 3)
 
   pool.query(
-    'UPDATE '+ tableName + ' (identificador, img_pulmao,	id_hospital, id_medicamento,	descricao,	exame_data,	relatorio_data)' +
-    ' VALUES ($2, $3, $4, $5, $6, $7, $8) ' +
+    'UPDATE ' + tableName + ' SET identificador = $2, img_pulmao = $3, id_hospital = $4, id_medicamento = $5,' +
+    '	descricao = $6,	exame_data = $7, relatorio_data = $8' +
     ' WHERE id = $1', 
     [ id, identificador, img_pulmao, id_hospital, id_medicamento, descricao, date2, date ],
     (error, results) => {

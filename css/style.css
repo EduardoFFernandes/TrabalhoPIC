@@ -6,6 +6,9 @@ h1 {
     font-family: 'Times New Roman', Times, serif;
     color: rgb(12, 2, 2);
 }
+body {
+	background-image: url("/background");
+}
 
 .form-style-5{
 	max-width: 500px;

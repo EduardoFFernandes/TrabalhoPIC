@@ -12,6 +12,9 @@ module.exports = function(app){
     app.get('/js/javascript.js',(req,res) =>{
         res.sendFile(__dirname + '/js/javascript.js')
     })
+    app.get('/background',(req,res) => {
+        res.sendFile(__dirname + '/content/background.jpg')
+    })
 
     app.get('/', userController.getUsers)
 
