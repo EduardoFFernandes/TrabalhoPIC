@@ -6,9 +6,22 @@
             <legend><span class="number">1</span> Endereço</legend>
             <input type="text" name="endereco" 
             id="endereco" placeholder="Seu endereço *">
-            <input type="number" name="cep" 
-            id="cep" placeholder="Seu CEP *">
+            <label for="cep">CEP</label>
+            <input type="text" name="cep" 
+            id="cep"=>
             <input type="submit" value="Apply" />
         </fieldset>
     </form>
 </div>
+<script src="https://unpkg.com/imask"></script>
+<script>
+    var cepMask = IMask(
+        document.getElementById('cep'), {
+        mask: '00000-000',
+        lazy: false,
+        maxLength: 8
+    });
+    document.getElementById('enderecoForm').onsubmit = () => {
+        document.getElementById('cep').value = cepMask.unmaskedValue
+    }
+</script>

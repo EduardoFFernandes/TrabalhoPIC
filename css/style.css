@@ -112,6 +112,8 @@ body {
 	background: #342c58;
 }
 table {
+	/* background: #00000017; */
+	/* opacity: 0.5; */
 	border-collapse: collapse;
 	width: 100%;
   }
@@ -197,4 +199,34 @@ img {
 
 .col-6 {
 	width: 50%;
+}
+
+#navigationBar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+  
+#navigationBar li {
+	float: left;
+}
+
+#navigationBar li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#navigationBar li a:hover {
+	background-color: #111;
+}
+
+#tdDescricao {
+	width: 300px;
+    border: solid;
 }

@@ -8,10 +8,22 @@
             <input type="hidden" name="id" id="id" value="{{id}}">
             <input type="text" name="endereco" 
             id="endereco" placeholder="Seu endereço *" value="{{endereco}}">
-            <input type="number" name="cep" 
-            id="cep" placeholder="Seu CEP *" value="{{cep}}">
+            <input type="text" name="cep" 
+            id="cep" value="{{cep}}">
             <input type="submit" value="Apply" />
             {{/each}}
         </fieldset>
     </form>
 </div>
+<script src="https://unpkg.com/imask"></script>
+<script>
+    var cepMask = IMask(
+        document.getElementById('cep'), {
+        mask: '00000-000',
+        lazy: false,
+        maxLength: 8
+    });
+    document.getElementById('enderecoForm').onsubmit = () => {
+        document.getElementById('cep').value = cepMask.unmaskedValue
+    }
+</script>

@@ -7,6 +7,11 @@ enderecoCrudController.getAllEndereco = (request, response) => {
       if (error) {
           throw error
       }
+      results.rows.forEach(element => {
+        var cep = element.cep
+        element.cep = cep.substring(0, 5) + '-' + cep.substring(5,9)
+      });
+      
       response.status(200).render('./endereco/listEndereco',{data:results.rows})
     })
 }
