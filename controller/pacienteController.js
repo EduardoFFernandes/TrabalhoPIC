@@ -7,6 +7,13 @@ pacienteCrudController.getAllPaciente = (request, response) => {
       if (error) {
           throw error
       }
+      results.rows.forEach(element => {
+        var date = element.relatorio_data 
+        dateString = date.getDate().toString().padStart(2,'0') + '/' + (date.getMonth() + 1).toString().padStart(2,'0')  + '/' + date.getFullYear() 
+        element.relatorio_data = dateString
+      });
+
+
       response.status(200).render('./paciente/listPaciente',{data:results.rows})
     })
 }

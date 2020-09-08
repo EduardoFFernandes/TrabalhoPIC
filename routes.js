@@ -16,7 +16,7 @@ module.exports = function(app){
         res.sendFile(__dirname + '/content/background.jpg')
     })
 
-    app.get('/', userController.getUsers)
+    app.get('/', pacienteController.getAllPaciente)
 
     app.get('/users', userController.getUsers)
 
