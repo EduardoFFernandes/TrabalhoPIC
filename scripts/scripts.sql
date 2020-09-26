@@ -33,6 +33,7 @@ CREATE TABLE public.paciente (
 	id_medicamento int8 NULL,
 	CONSTRAINT paciente_pkey PRIMARY KEY (id)
 );
+
 -- public.paciente foreign keys
 
 
