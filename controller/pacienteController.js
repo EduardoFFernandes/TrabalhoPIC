@@ -48,15 +48,15 @@ pacienteCrudController.getPacienteById = (request, response) => {
 }
 
 pacienteCrudController.createPaciente = (request, response) => {
-  const { identificador, img_pulmao, id_hospital, id_medicamento, descricao, exame_data} = request.body
+  const { identificador, img_pulmao, magnitude, id_hospital, id_medicamento, descricao, exame_data} = request.body
   var date = new Date()
   var date2 = new Date(exame_data)
   date2.setHours(date2.getHours() + 3)
  
 
-  pool.query('INSERT INTO '+ tableName +' (identificador, img_pulmao,	id_hospital, id_medicamento,	descricao,	exame_data,	relatorio_data)' +
-   'VALUES ($1, $2, $3, $4, $5, $6, $7) ', 
-   [identificador, img_pulmao, id_hospital, id_medicamento, descricao, date2, date], 
+  pool.query('INSERT INTO '+ tableName +' (identificador, img_pulmao,	magnitude, id_hospital, id_medicamento,	descricao,	exame_data,	relatorio_data)' +
+   'VALUES ($1, $2, $3, $4, $5, $6, $7, $8) ', 
+   [identificador, img_pulmao, magnitude, id_hospital, id_medicamento, descricao, date2, date], 
    (error, results) => {
     if (error) {
       throw error
@@ -66,16 +66,16 @@ pacienteCrudController.createPaciente = (request, response) => {
 }
 
 pacienteCrudController.updatePaciente = (request, response) => {
-  const { id, identificador, img_pulmao, id_hospital, id_medicamento, descricao, exame_data} = request.body
+  const { id, identificador, img_pulmao, magnitude, id_hospital, id_medicamento, descricao, exame_data} = request.body
   var date = new Date()
   var date2 = new Date(exame_data)
   date2.setHours(date2.getHours() + 3)
 
   pool.query(
-    'UPDATE ' + tableName + ' SET identificador = $2, img_pulmao = $3, id_hospital = $4, id_medicamento = $5,' +
-    '	descricao = $6,	exame_data = $7, relatorio_data = $8' +
+    'UPDATE ' + tableName + ' SET identificador = $2, img_pulmao = $3, magnitude = $4, id_hospital = $5, id_medicamento = $6,' +
+    '	descricao = $7,	exame_data = $8, relatorio_data = $9' +
     ' WHERE id = $1', 
-    [ id, identificador, img_pulmao, id_hospital, id_medicamento, descricao, date2, date ],
+    [ id, identificador, img_pulmao, magnitude, id_hospital, id_medicamento, descricao, date2, date ],
     (error, results) => {
       if (error) {
         throw error

@@ -9,6 +9,7 @@
     "express-handlebars": "^5.1.0",
     "imask": "^6.0.5",
     "nodemon": "^2.0.4",
+    "nouislider": "^14.6.2",
     "pg": "^8.3.3",
     "wijmo": "^5.20202.699"
   },

@@ -22,3 +22,24 @@ function handleFiles() {
         document.getElementById("img_pulmao").value = arrayBuffer
     }
 }
+
+function createNoUiSlider(slider) {
+
+    noUiSlider.create(slider, {
+        start: 1,
+        behaviour: 'tap',
+        tooltips: true,
+        step: 1,
+        range: {
+            'min': 1,
+            'max': 5
+        },
+        format: wNumb({
+            decimals: 0,
+        })
+    });
+}  
+
+function getSliderValue (slider) {
+    return slider.noUiSlider.get()
+}

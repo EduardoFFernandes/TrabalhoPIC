@@ -25,6 +25,10 @@
                     </div>
                 </div>
             </div>
+            <label for="slider-tooltips">Escolha a gravidade do paciente:</label>
+            <div class="slider" id="slider-tooltips">
+                     <input type="hidden" name="magnitude" id="magnitude" value="{{magnitude}}">
+            </div>
             <label for="hospital_dropdown">Escolha o hospital:</label>
             <select id="hospital_dropdown" name="hospital_dropdown" ></select>
 
@@ -120,6 +124,10 @@
     document.getElementById('hospital_dropdown').value = document.getElementById('id_hospital').value
     document.getElementById('medicamento_dropdown').value = document.getElementById('id_medicamento').value
     document.getElementById("descricaoTextarea").value = document.getElementById("descricao").value
+
+    var slider = document.getElementById('slider-tooltips');
+    createNoUiSlider(slider)
+    slider.noUiSlider.set(document.getElementById("magnitude").value);
    
     // Use createObjectURL to make a URL for the blob
     var image = new Image();
@@ -132,6 +140,7 @@
         document.getElementById('id_hospital').value = document.getElementById('hospital_dropdown').value
         document.getElementById('id_medicamento').value = document.getElementById('medicamento_dropdown').value
         document.getElementById("descricao").value = document.getElementById("descricaoTextarea").value
+        document.getElementById("magnitude").value = getSliderValue(slider)
     }
 
 </script>

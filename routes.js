@@ -12,6 +12,20 @@ module.exports = function(app){
     app.get('/js/javascript.js',(req,res) =>{
         res.sendFile(__dirname + '/js/javascript.js')
     })
+
+    app.get('/nouislider.js',(req,res) =>{
+        res.sendFile(__dirname + '/js/nouislider/distribute/nouislider.js')
+    })
+
+    app.get('/nouislider.css',(req,res) =>{
+        res.sendFile(__dirname + '/js/nouislider/distribute/nouislider.css')
+    })
+
+    app.get('/wNumb.js',(req,res) =>{
+        res.sendFile(__dirname + '/js/wnumb/wNumb.js')
+    })
+
+    
     app.get('/background',(req,res) => {
         res.sendFile(__dirname + '/content/background.jpg')
     })
