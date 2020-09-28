@@ -3,6 +3,7 @@ var pacienteController = require("./controller/pacienteController");
 var enderecoController = require("./controller/enderecoController");
 var hospitalController = require("./controller/hospitalController");
 var medicamentoController = require("./controller/medicamentoController");
+var relatorioController = require("./controller/relatorioController");
 module.exports = function(app){
     
     app.get('/css/style.css', (req,res) =>{
@@ -113,4 +114,14 @@ module.exports = function(app){
     app.get('/delete-paciente/:id', pacienteController.deletePaciente)
     app.get('/edit-paciente/:id?', pacienteController.getPacienteById)
     app.post('/edit-paciente/:id?', pacienteController.updatePaciente)
+
+    app.get('/js/controls/wijmo.chart.min.js',(req,res) =>{
+        res.sendFile(__dirname + '/js/controls/wijmo.chart.min.js')
+    })
+
+    app.get('/relatorioAJAX', relatorioController.getRelatorioAJAX)
+
+    app.get('/relatorio', (req,res) => {
+        res.render('./relatorios/relatorio')
+    })
 }

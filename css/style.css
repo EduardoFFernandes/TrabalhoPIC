@@ -235,3 +235,14 @@ img {
 	margin-bottom: 20px;
 	margin-top: 40px;
 }
+
+.wj-data-label {
+	fill: #160b46 !important; 
+	font-weight: bold;
+}
+
+.wj-title {
+	fill: #000000 !important;
+	font-weight: bold !important;
+	font-size: 20px !important;
+}

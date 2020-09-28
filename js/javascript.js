@@ -24,7 +24,7 @@ function handleFiles() {
 }
 
 function createNoUiSlider(slider) {
-
+    const magnitudeName = ["Assintomaticos", "Sintomas Leves", "Paciente Estável", "Grave", "Muito Grave"]
     noUiSlider.create(slider, {
         start: 1,
         behaviour: 'tap',
@@ -34,6 +34,9 @@ function createNoUiSlider(slider) {
             'min': 1,
             'max': 5
         },
+        tooltips: {to: function(value) {
+            return magnitudeName[value - 1];
+        }},
         format: wNumb({
             decimals: 0,
         })
