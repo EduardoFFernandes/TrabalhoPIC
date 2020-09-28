@@ -34,6 +34,12 @@ CREATE TABLE public.paciente (
 	CONSTRAINT paciente_pkey PRIMARY KEY (id)
 );
 
+CREATE OR REPLACE VIEW public.relatorio_paciente
+AS SELECT count(p.magnitude) AS count,
+    p.magnitude
+   FROM paciente p
+  GROUP BY p.magnitude;
+
 -- public.paciente foreign keys
 
 
