@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="css/wijmo.min.css">
+<div class="container-fluid">
+    <div id="chartPie"></div>
+</div>
+
+
+<script src="/js/controls/wijmo.chart.min.js"></script>
+<script>
+    
+    //Request Relatorio
+    const requestRelatorio = new XMLHttpRequest();
+    requestRelatorio.open('GET', '/relatorioAJAX', true);
+
+    requestRelatorio.onload = function() {
+        if (requestRelatorio.status >= 200 && requestRelatorio.status < 300) {
+            const data = JSON.parse(requestRelatorio.responseText);
+            init(data)
+        } else {
+            console.log('The request failed!');
+        }   
+    }
+    requestRelatorio.onerror = function() {
+        console.error('An error occurred fetching the JSON from ' + url);
+    };
+    requestRelatorio.send();
+
+    function init(data) {
+        var sum = data.map(c => c.count).reduce((sum, cur) => sum + cur);
+        var pie = new wijmo.chart.FlexPie('#chartPie', {
+            header: 'Pacientes',
+            bindingName: 'magnitude',
+            binding: 'count',
+            startAngle: 11,
+            dataLabel: {
+                content: (ht) => {
+                    return `${ht.name} ${wijmo.Globalize.format(ht.value / sum, 'p2')}`;
+                }
+            },
+            itemsSource: data,
+            palette: ['rgba(14,76,170,1)', 'rgba(162,198,16,1)', 'rgba(153,51,204,1)', 'rgba(198,98,16,1)',
+                'rgba(170,14,14,1)']
+        });
+    }
+</script>

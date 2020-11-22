@@ -1,0 +1,28 @@
+<div class="create-panel">
+    <a href="/create-hospital"><i class="far fa-plus-square fa-3x"></i></a>
+    {{!-- <a href="/wijmo"><i class="fas fa-table fa-3x"></i></a> --}}
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Endereco</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{nome}}</td>
+            <td>{{endereco}}</td>
+            <td>
+                <a href="/delete-hospital/{{id}}"><i class="trash far fa-trash-alt fa-3x"></i></a>
+                <a href="/edit-hospital/{{id}}"><i class="far fa-edit fa-3x"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+
