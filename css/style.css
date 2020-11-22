@@ -246,3 +246,35 @@ img {
 	font-weight: bold !important;
 	font-size: 20px !important;
 }
+
+.flex-center {
+	display: flex;
+    justify-content: center;
+}
+
+.colunaUnica {
+	width: 80%;
+	padding: 10%;
+	flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.colunaDupla {
+	width: 45%;
+	padding: 5%;
+}
+
+.center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+p {
+	text-indent: 50px;
+	text-align: justify;
+	letter-spacing: 3px;
+  }
+  
