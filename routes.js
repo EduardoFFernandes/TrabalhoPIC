@@ -1,9 +1,3 @@
-var userController = require("./controller/userController.js");
-var pacienteController = require("./controller/pacienteController");
-var enderecoController = require("./controller/enderecoController");
-var hospitalController = require("./controller/hospitalController");
-var medicamentoController = require("./controller/medicamentoController");
-var relatorioController = require("./controller/relatorioController");
 module.exports = function(app){
     
     app.get('/css/style.css', (req,res) =>{
