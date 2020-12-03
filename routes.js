@@ -12,6 +12,10 @@ module.exports = function(app){
         res.sendFile(__dirname + '/content/background.jpg')
     })
 
+    app.get('/music',(req,res) => {
+        res.sendFile(__dirname + '/content/music.mp4')
+    })
+
     app.get('/logoUnb',(req,res) => {
         res.sendFile(__dirname + '/content/logoUnb.png')
     })

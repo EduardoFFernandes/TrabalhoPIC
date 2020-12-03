@@ -1,14 +1,13 @@
 <div>
     <div class="colunaUnica" style="padding-bottom: 20px;padding-top: 50px;">
-        <h1>Motivação do projeto</h1> 
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in
-            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus PageMaker including
-            versions of Lorem Ipsum.</p>        
+        <h1>Atividades</h1> 
+        <p>Com uma folha e papel em mãos, na aplicação abaixo, dentro do modo Laboratório de Equilíbrio, 
+            descubra anote o valor a massa de cada presente.</p>
+        <p>Depois confira as <a style="cursor: pointer; color: blue;" onclick="respostas()">repostas</a>.</p> 
+        <div id="respostas" style="display: none;">
+        <p style="color: rgb(7, 53, 13);"> A: 20 kgs  B: 5 kgs  C: 15 kgs D: 10 kgs</p>
+        <p style="color: rgb(7, 53, 13);"> E: 2,5 kgs F 50 kgs: G: 25 kgs H: 7,5 kgs</p>
+        </div>
     </div>
     <div class="colunaUnica" style="padding-bottom: 0px;padding-top: 0px;">
         <iframe src="https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_pt_BR.html" 
@@ -17,6 +16,17 @@
 </div>
 <script>
     document.getElementById('navigationBar').children[0].children[2].style.opacity = "50%"
+
+
+
+function respostas() {
+  var respostas = document.getElementById("respostas");
+  if (respostas.style.display === "none") {
+    respostas.style.display = "block";
+  } else {
+    respostas.style.display = "none";
+  }
+}
 </script>
 
 
