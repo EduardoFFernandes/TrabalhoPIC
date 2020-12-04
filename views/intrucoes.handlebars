@@ -1,18 +1,30 @@
-<div style="display: flex;">
-    <div class="colunaDupla center">
-        <h1>Conteúdo em sala de aula </h1> 
-        <p> “Se me derem uma alavanca e um ponto de apoio, deslocarei o mundo”. Essa foi a frase dita 
-            por Arquimedes para descrever a função de uma alavanca. Ela constitui-se de uma máquina simples, 
-            é utilizada para facilitar a execução de um trabalho e tem a capacidade de multiplicar a força 
-            aplicada sobre ela. Suas principais funções são: elevar objetos pesados, recortar, movimentar etc.</p>        
-    </div>
-    <div class="colunaDupla center">
-        <h1>Video Tutorial</h1>
-        <video width="400" height="240" controls>
-        <source src="" type="video/mp4">
-        <source src="" type="video/ogg">
-        Your browser does not support the video tag.
-        </video>
+<div class="" style="display: flex; padding: 5% 5% 0% 5%; background-color: #25076B;">
+    <div class="" style="display: flex; background-color: #46178F;">
+        <div style="display: flex;">
+            <div class="colunaDupla center">
+                <h1 style="color: white;">Conteúdo em sala de aula </h1> 
+                <p style="color: white;"> “Se me derem uma alavanca e um ponto de apoio, deslocarei o mundo”. Essa foi a frase dita 
+                    por Arquimedes para descrever a função de uma alavanca. Ela constitui-se de uma máquina simples, 
+                    é utilizada para facilitar a execução de um trabalho e tem a capacidade de multiplicar a força 
+                    aplicada sobre ela. Suas principais funções são: elevar objetos pesados, recortar, movimentar etc.</p>        
+            </div>
+            <div class="colunaDupla center">
+                <h1 style="color: white;">Video Tutorial</h1>
+                <div class="video-wrap" style="width: 524px;">
+                    <video width="524" height="295" autobuffer autoplay muted loop webkit-playsinline="true" id="videoIntroducao"
+                    data-lzy-src="https://www.youtube.com/watch?v=b0y_qjdrGio&list=RDb0y_qjdrGio&start_radio=1&ab_channel=Murci%C3%A9lagoSV" 
+                    src="/music"
+                    playsinline="true" poster="https://kahoot.com/files/2020/03/schools-2-placeholder-702x439.png">
+                        <div class="fallback">
+                            <img alt="Video" width="524" height="295" />
+                        </div>
+                    </video>
+                    <a href="javascript:;" onclick="muteUnmute()" class="btn-trans" style="bottom: 34px; position: relative; right: -24%; top: 3%;">
+                        Unmute
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script>

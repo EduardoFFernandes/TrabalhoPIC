@@ -5,26 +5,38 @@
             <p style="color: white;">Venha aprender sobre alavancas com a aplicação “Balancing Act”,
             através do peso dos objetos determine o comportamento da gangorra.
             </p>
-            <a class="rainbow rainbow-1">Experimente agora<a/>       
+            <a href="/intrucoes" class="rainbow rainbow-1" style="text-decoration: none;">Experimente agora<a/>       
         </div>
         <div class="colunaDupla center">
-            <video width="524" height="295" autobuffer autoplay muted loop webkit-playsinline="true"
-            data-lzy-src="https://www.youtube.com/watch?v=b0y_qjdrGio&list=RDb0y_qjdrGio&start_radio=1&ab_channel=Murci%C3%A9lagoSV" 
-            src="/music"
-            playsinline="true" poster="https://kahoot.com/files/2020/03/schools-2-placeholder-702x439.png">
-                <div class="fallback">
-                    <img alt="Video" width="524" height="295" />
-                </div>
-            </video>
-            <a href="javascript:;" class="btn-trans" data-a11y-dialog-show="hero-video" style="">
-                Watch video 
-            </a>
+            <div class="video-wrap" style="width: 524px;">
+                <video width="524" height="295" autobuffer autoplay muted loop webkit-playsinline="true" id="videoIntroducao"
+                data-lzy-src="https://www.youtube.com/watch?v=b0y_qjdrGio&list=RDb0y_qjdrGio&start_radio=1&ab_channel=Murci%C3%A9lagoSV" 
+                src="/music"
+                playsinline="true" poster="https://kahoot.com/files/2020/03/schools-2-placeholder-702x439.png">
+                    <div class="fallback">
+                        <img alt="Video" width="524" height="295" />
+                    </div>
+                </video>
+                <a href="javascript:;" onclick="muteUnmute()" class="btn-trans" style="bottom: 34px; position: relative; right: -24%; top: 3%;">
+                    Unmute
+                </a>
+            </div>
         </div>
     </div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+</div>
+<div>
+    <div>
+        <img class="img-descritivo margin-10" src="/imagem1" width="470" height="320" alt="Aplicação Leve">
+    </div>
+    <div>
+        <img class="img-descritivo margin-10" src="/imagem2" width="470" height="320" alt="Aplicação Leve">
+    </div>
+    <div>
+        <img class="img-descritivo margin-10" src="/imagem3" width="470" height="320" alt="Aplicação Leve">
+    </div>
+    <div>
+        <img class="img-descritivo margin-10" src="/imagem4" width="470" height="320" alt="Aplicação Leve">
+    </div>
 </div>
 <script>
     document.getElementById('navigationBar').children[0].children[0].style.opacity = "50%"

@@ -20,6 +20,22 @@ module.exports = function(app){
         res.sendFile(__dirname + '/content/logoUnb.png')
     })
 
+    app.get('/imagem1',(req,res) => {
+        res.sendFile(__dirname + '/content/Imagem_1.png')
+    })
+
+    app.get('/imagem2',(req,res) => {
+        res.sendFile(__dirname + '/content/Imagem_2.png')
+    })
+
+    app.get('/imagem3',(req,res) => {
+        res.sendFile(__dirname + '/content/Imagem_3.png')
+    })
+
+    app.get('/imagem4',(req,res) => {
+        res.sendFile(__dirname + '/content/Imagem_4.png')
+    })
+
     app.get('/',(req,res) => {
         res.render('./home')
     })

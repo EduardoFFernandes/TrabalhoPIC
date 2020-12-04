@@ -120,7 +120,7 @@ body{
   color: #fff;
   cursor: pointer;
   padding: 8px 16px;
-  
+  font-weight: bold;
 }
 
 .rainbow-1:hover{
@@ -190,4 +190,29 @@ body{
   color: black;
   padding: 8px 16px;
   text-decoration: none;
+}
+
+.btn-trans {
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: .375rem .625rem;
+  border-radius: .25rem;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.img-descritivo {
+  border:2px solid #fff;
+  -moz-box-shadow: 10px 10px 5px #ccc;
+  -webkit-box-shadow: 10px 10px 5px #ccc;
+  box-shadow: 10px 10px 5px #ccc;
+  -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+  border-radius:25px;
+}
+
+.margin-10 {
+  margin: 10px;
 }
