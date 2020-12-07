@@ -28,16 +28,71 @@
     </div>
 </div>
 <!-- Modal HTML embedded directly into document -->
-<div id="ex1" class="modal">
-  <p>Thanks for clicking. That felt good.</p>
-  <a href="#" rel="modal:close">Close</a>
+<div id="ex1" class="modal" style="padding: 0px 0px 15px 0px;">
+    <div style="color: #fff!important; background-color: #2196F3!important; margin: none;">
+        <p style="margin-top: 0px; font-size: 40px; text-indent: 4px;">Questionário 1</p>
+    </div>
+    <div class="div-inputs">
+        <div class="div-input">
+            <label for="Q1">Presente 1</label>
+            <input class="input" type="text" id="Q1">
+        </div>
+
+        <div class="div-input">
+            <label for="Q2">Presente 2</label>
+            <input class="input" type="text" id="Q2">
+        </div>
+
+        <div class="div-input">
+            <label for="Q3">Presente 3</label>
+            <input class="input" type="text" id="Q3">
+        </div>
+
+        <div class="div-input">
+            <label for="Q4">Presente 4</label>
+            <input class="input" type="text" id="Q4">
+        </div>
+
+        <div class="div-input">
+            <label for="Q5">Presente 5</label>
+            <input class="input" type="text" id="Q5">
+        </div>
+
+        <div class="div-input">
+            <label for="Q6">Presente 6</label>
+            <input class="input" type="text" id="Q6">
+        </div>
+
+        <div class="div-input">
+            <label for="Q7">Presente 7</label>
+            <input class="input" type="text" id="Q7">
+        </div>    
+        
+        <div class="div-input">
+            <label for="Q8">Presente 8</label>
+            <input class="input" type="text" id="Q8">
+        </div>
+
+    </div>
+  <a class="btn-trans" href="#" rel="modal:close">Ok</a>
 </div>
 
 <!-- Link to open the modal -->
-<p><a class="btn-trans" href="#ex1" rel="modal:open">Open Modal</a></p>
+<p><a class="btn-trans" href="#ex1">Questão 1</a></p>
+
 
 <script>
     $('#navigationBar').children(0).children(1)[1].style.opacity = "50%"
+    
+    $('a[href="#ex1"]').click(function(event) {
+      event.preventDefault();
+      $(this).modal({
+        fadeDuration: 400,
+        escapeClose: false,
+        clickClose: false,
+        showClose: false
+      });
+    });
 </script>
 
 
