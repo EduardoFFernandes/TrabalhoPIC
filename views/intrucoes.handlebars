@@ -27,8 +27,17 @@
         </div>
     </div>
 </div>
+<!-- Modal HTML embedded directly into document -->
+<div id="ex1" class="modal">
+  <p>Thanks for clicking. That felt good.</p>
+  <a href="#" rel="modal:close">Close</a>
+</div>
+
+<!-- Link to open the modal -->
+<p><a class="btn-trans" href="#ex1" rel="modal:open">Open Modal</a></p>
+
 <script>
-    document.getElementById('navigationBar').children[0].children[1].style.opacity = "50%"
+    $('#navigationBar').children(0).children(1)[1].style.opacity = "50%"
 </script>
 
 
