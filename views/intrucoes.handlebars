@@ -82,8 +82,11 @@
 <!-- Link to open the modal -->
 <p><a class="btn-trans" href="#ex1">Questão 1</a></p>
 
-
 <script>
+    const correctAnswers = [1,2,3,4,5,6,7,8];
+    const correctAnswers2 = [("Q1",1),("Q2",2),("Q3",3),("Q4",4),
+                            ("Q5",5),("Q6",6),("Q7",7),("Q8",8)];
+
     $('#navigationBar').children(0).children(1)[1].style.opacity = "50%"
     
     $('a[href="#ex1"]').click(function(event) {
@@ -95,6 +98,27 @@
         showClose: false
       });
     });
+
+    $("input[type='text']").change(function () {
+        var id = this.id.charAt(1)
+        if(correctAnswers[this.id.charAt(1) - 1] == this.value) {
+            /*this.animate({backgroundColor: "#14980f94"}, 200,*/
+            /*this.animate({
+                backgroundColor: '#000'
+            }, 1000, "", debugger)*/
+            this.animate({backgroundColor: "#14980f94"}, { duration: 1000,
+            easing: 'easeInOutExpo', complete:function () {
+                alert('hi');
+            }
+   }
+);
+
+
+        } else {
+            this.style.background = "#ac000094";
+        }
+    });
+    
 </script>
 
 

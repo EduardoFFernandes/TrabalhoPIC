@@ -235,6 +235,5 @@ body{
   border: 2px solid #fff!important;
   border-radius: 5px;
   margin: 0px 20px 0px 20px;
-  display: flex;
   justify-content: center;
 }
