@@ -1,5 +1,5 @@
 <div class="" style="display: flex; padding: 5% 5% 0% 5%; background-color: #25076B;">
-    <div class="" style="display: flex; background-color: #46178F;">
+    <div class="" style="background-color: #46178F;">
         <div style="display: flex;">
             <div class="colunaDupla center">
                 <h1 style="color: white;">Conteúdo em sala de aula </h1> 
@@ -28,68 +28,111 @@
     </div>
 </div>
 <!-- Modal HTML embedded directly into document -->
-<div id="ex1" class="modal" style="padding: 0px 0px 15px 0px; background-color: #2196F3!important;">
+<div id="ex1" class="modal" style="padding: 0px 0px 15px 0px; background-color: #25076B !important;">
     <div style="color: #fff!important; margin: none;">
-        <p style="margin: 0px 0px 0px 0px; font-size: 40px; text-indent: 4px;">Questionário 1</p>
+        <p style="margin: 0px 0px 0px 0px; font-size: 40px; text-indent: 4px;">Presentes</p>
     </div>
     <div class="div-inputs">
         <div class="div-input">
-            <label for="Q1">Presente 1</label>
-            <input class="input" type="text" id="Q1">
+            <img class="presentes" src="/presenteA" alt="Presente A">
+            <input class="input" type="text" id="Q1" name="questions1[]">
+            <p style="text-align: start; text-indent: 5px;">KG</p>
         </div>
 
         <div class="div-input">
-            <label for="Q2">Presente 2</label>
-            <input class="input" type="text" id="Q2">
+            <img class="presentes" src="/presenteB" alt="Presente B">
+            <input class="input" type="text" id="Q2" name="questions1[]">
+            <p style="text-align: start; text-indent: 5px;">KG</p>
         </div>
 
         <div class="div-input">
-            <label for="Q3">Presente 3</label>
-            <input class="input" type="text" id="Q3">
+            <img class="presentes" src="/presenteC" alt="Presente C">
+            <input class="input" type="text" id="Q3" name="questions1[]">
+            <p style="text-align: start; text-indent: 5px;">KG</p>
         </div>
 
         <div class="div-input">
-            <label for="Q4">Presente 4</label>
-            <input class="input" type="text" id="Q4">
+            <img class="presentes" src="/presenteD" alt="Presente D">
+            <input class="input" type="text" id="Q4" name="questions1[]">
+            <p style="text-align: start; text-indent: 5px;">KG</p>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 12px;">
+        <a id='btn-ok-q1' class="btn-trans" href="#" rel="modal:close">Ok</a>
+    </div>
+</div>
+
+<!-- Modal HTML embedded directly into document -->
+<div id="ex2" class="modal" style="padding: 0px 0px 15px 0px; background-color: #25076B !important;">
+    <div style="color: #fff!important; margin: none;">
+        <p style="margin: 0px 0px 0px 0px; font-size: 40px; text-indent: 4px;">Presentes</p>
+    </div>
+    <div class="div-inputs">    
+        <div class="div-input">
+            <img class="presentes" src="/presenteE" alt="Presente E">
+            <input class="input" type="text" id="Q5" name="questions2[]">
+            <p style="text-align: start; text-indent: 5px;">KG</p>
         </div>
 
         <div class="div-input">
-            <label for="Q5">Presente 5</label>
-            <input class="input" type="text" id="Q5">
+            <img class="presentes" src="/presenteF" alt="Presente F">
+            <input class="input" type="text" id="Q6" name="questions2[]">
+            <p style="text-align: start; text-indent: 5px;">KG</p>
         </div>
 
         <div class="div-input">
-            <label for="Q6">Presente 6</label>
-            <input class="input" type="text" id="Q6">
-        </div>
-
-        <div class="div-input">
-            <label for="Q7">Presente 7</label>
-            <input class="input" type="text" id="Q7">
+            <img class="presentes" src="/presenteG" alt="Presente G">
+            <input class="input" type="text" id="Q7" name="questions2[]">
+            <p style="text-align: start; text-indent: 5px;">KG</p>
         </div>    
         
         <div class="div-input">
-            <label for="Q8">Presente 8</label>
-            <input class="input" type="text" id="Q8">
+            <img class="presentes" src="/presenteH" alt="Presente H">
+            <input class="input" type="text" id="Q8" name="questions2[]">
+            <p style="text-align: start; text-indent: 5px;">KG</p>
         </div>
 
     </div>
     <div style="display: flex; justify-content: center; margin-top: 12px;">
-        <a class="btn-trans" href="#" rel="modal:close">Ok</a>
+        <a id='btn-ok-q2' class="btn-trans" href="#" rel="modal:close">Ok</a>
     </div>
 </div>
 
 <!-- Link to open the modal -->
-<p><a class="btn-trans" href="#ex1">Questão 1</a></p>
+<div class="btns">
+    <h1 style="color: white;">Questionario </h1>
+    <div style="display: flex; justify-content: space-around;">
+        <a id='btn-questions1' class="btn-trans" href="#ex1" style="padding: 10px; background: #46178F; border: 6px solid #25076b69; border-bottom-left-radius: 0px;">Questão 1</a>
+        <a id='btn-questions2' class="btn-trans" href="#ex2" style="padding: 10px; background: #46178F; border: 6px solid #25076b69; border-bottom-right-radius: 0px;">Questão 2</a>
+    </div>
+</div>
+<!-- iFrame -->
+<div class="colunaUnica iframe">
+    <iframe src="https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_pt_BR.html" 
+    width="800" height="600" scrolling="no" allowfullscreen></iframe>
+</div>
 
 <script>
-    const correctAnswers = [1,2,3,4,5,6,7,8];
-    const correctAnswers2 = [("Q1",1),("Q2",2),("Q3",3),("Q4",4),
-                            ("Q5",5),("Q6",6),("Q7",7),("Q8",8)];
+
+    const correctAnswers = [20,5,15,10,2.5,50,25,7.5];
 
     $('#navigationBar').children(0).children(1)[1].style.opacity = "50%"
+
+    $(".input").inputmask({
+        regex: "[0-9.]*"
+    });
     
     $('a[href="#ex1"]').click(function(event) {
+      event.preventDefault();
+      $(this).modal({
+        fadeDuration: 400,
+        escapeClose: false,
+        clickClose: false,
+        showClose: false
+      });
+    });
+
+    $('a[href="#ex2"]').click(function(event) {
       event.preventDefault();
       $(this).modal({
         fadeDuration: 400,
@@ -106,12 +149,43 @@
 
         } else {
             $(this).css("background", "#ac000094")
-            $(this).effect( "shake", {distance: 5} , "slow",() => {
-                $(this).css("background", "#ac000094")
-            } );
-            
+            $(this).effect( "shake", {distance: 5} , "slow");
         }
     });
+
+    $('#btn-ok-q1').click(() => {
+    var answers = $('input[name^=questions1]').map(function(idx, elem) {
+        if(correctAnswers[elem.id.charAt(1) - 1] == elem.value) {
+            return true;
+        }
+        return false
+    }).get();
+    if(answers.every(allTrue)) {
+        $('#btn-questions1').animate({
+            backgroundColor: "#14980f94",
+            color: '#000'
+            }, 1000);
+    }
+    });
+
+    $('#btn-ok-q2').click(() => {
+    var answers = $('input[name^=questions2]').map(function(idx, elem) {
+        if(correctAnswers[elem.id.charAt(1) - 1] == elem.value) {
+            return true;
+        }
+        return false
+    }).get();
+    if(answers.every(allTrue)) {
+        $('#btn-questions2').animate({
+            backgroundColor: "#14980f94",
+            color: '#000'
+            }, 1000);
+    }
+    });
+
+    function allTrue(element, index, array) {
+        return element == true;
+    }
 
 </script>
 

@@ -4,6 +4,10 @@ module.exports = function(app){
         res.sendFile(__dirname + '/css/style.css')
     })
 
+    app.get('/css/figuras.css', (req,res) =>{
+        res.sendFile(__dirname + '/css/figuras.css')
+    })
+
     app.get('/js/javascript.js',(req,res) =>{
         res.sendFile(__dirname + '/js/javascript.js')
     })
