@@ -102,23 +102,17 @@
     $("input[type='text']").change(function () {
         var id = this.id.charAt(1)
         if(correctAnswers[this.id.charAt(1) - 1] == this.value) {
-            /*this.animate({backgroundColor: "#14980f94"}, 200,*/
-            /*this.animate({
-                backgroundColor: '#000'
-            }, 1000, "", debugger)*/
-            this.animate({backgroundColor: "#14980f94"}, { duration: 1000,
-            easing: 'easeInOutExpo', complete:function () {
-                alert('hi');
-            }
-   }
-);
-
+            $(this).animate({backgroundColor: "#14980f94"}, 1000);
 
         } else {
-            this.style.background = "#ac000094";
+            $(this).css("background", "#ac000094")
+            $(this).effect( "shake", {distance: 5} , "slow",() => {
+                $(this).css("background", "#ac000094")
+            } );
+            
         }
     });
-    
+
 </script>
 
 

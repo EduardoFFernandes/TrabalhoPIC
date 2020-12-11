@@ -36,6 +36,31 @@ module.exports = function(app){
         res.sendFile(__dirname + '/content/Imagem_4.png')
     })
 
+    app.get('/presenteA',(req,res) => {
+        res.sendFile(__dirname + '/content/Presente A.png')
+    })
+    app.get('/presenteB',(req,res) => {
+        res.sendFile(__dirname + '/content/Presente B.png')
+    })
+    app.get('/presenteC',(req,res) => {
+        res.sendFile(__dirname + '/content/Presente C.png')
+    })
+    app.get('/presenteD',(req,res) => {
+        res.sendFile(__dirname + '/content/Presente D.png')
+    })
+    app.get('/presenteE',(req,res) => {
+        res.sendFile(__dirname + '/content/Presente E.png')
+    })
+    app.get('/presenteF',(req,res) => {
+        res.sendFile(__dirname + '/content/Presente F.png')
+    })
+    app.get('/presenteG',(req,res) => {
+        res.sendFile(__dirname + '/content/Presente G.png')
+    })
+    app.get('/presenteH',(req,res) => {
+        res.sendFile(__dirname + '/content/Presente H.png')
+    })
+
     app.get('/',(req,res) => {
         res.render('./home')
     })
