@@ -81,4 +81,9 @@ module.exports = function(app){
     app.get('/sobre', (req,res) => {
         res.render('./sobre')
     })
+
+    app.get('/questao1', (req,res) => {
+        res.sendFile(__dirname + '/views/modals/questao1.html')
+    })
+
 }

@@ -11,3 +11,7 @@ function muteUnmute() {
         video.pause()
     }
 }
+
+function allTrue(element, index, array) {
+    return element == true;
+}

@@ -29,99 +29,105 @@
         </div>
     </div>
 </div>
-<!-- Modal HTML embedded directly into document -->
-<div id="ex1" class="modal" style="padding: 0px 0px 15px 0px; background-color: #25076B !important;">
-    <div style="color: #fff!important; margin: none;">
-        <p style="margin: 0px 0px 0px 0px; font-size: 40px; text-indent: 4px;">Presentes</p>
-    </div>
-    <div class="div-inputs">
-        <div class="div-input">
-            <img class="presentes" src="/presenteA" alt="Presente A">
-            <input class="input" type="text" id="Q1" name="questions1[]">
-            <p style="text-align: start; text-indent: 5px;">KG</p>
-        </div>
 
-        <div class="div-input">
-            <img class="presentes" src="/presenteB" alt="Presente B">
-            <input class="input" type="text" id="Q2" name="questions1[]">
-            <p style="text-align: start; text-indent: 5px;">KG</p>
-        </div>
-
-        <div class="div-input">
-            <img class="presentes" src="/presenteC" alt="Presente C">
-            <input class="input" type="text" id="Q3" name="questions1[]">
-            <p style="text-align: start; text-indent: 5px;">KG</p>
-        </div>
-
-        <div class="div-input">
-            <img class="presentes" src="/presenteD" alt="Presente D">
-            <input class="input" type="text" id="Q4" name="questions1[]">
-            <p style="text-align: start; text-indent: 5px;">KG</p>
-        </div>
-    </div>
-    <div style="display: flex; justify-content: center; margin-top: 12px;">
-        <a id='btn-ok-q1' class="btn-trans" href="#" rel="modal:close">Ok</a>
-    </div>
-</div>
-
-<!-- Modal HTML embedded directly into document -->
-<div id="ex2" class="modal" style="padding: 0px 0px 15px 0px; background-color: #25076B !important;">
-    <div style="color: #fff!important; margin: none;">
-        <p style="margin: 0px 0px 0px 0px; font-size: 40px; text-indent: 4px;">Presentes</p>
-    </div>
-    <div class="div-inputs">    
-        <div class="div-input">
-            <img class="presentes" src="/presenteE" alt="Presente E">
-            <input class="input" type="text" id="Q5" name="questions2[]">
-            <p style="text-align: start; text-indent: 5px;">KG</p>
-        </div>
-
-        <div class="div-input">
-            <img class="presentes" src="/presenteF" alt="Presente F">
-            <input class="input" type="text" id="Q6" name="questions2[]">
-            <p style="text-align: start; text-indent: 5px;">KG</p>
-        </div>
-
-        <div class="div-input">
-            <img class="presentes" src="/presenteG" alt="Presente G">
-            <input class="input" type="text" id="Q7" name="questions2[]">
-            <p style="text-align: start; text-indent: 5px;">KG</p>
-        </div>    
-        
-        <div class="div-input">
-            <img class="presentes" src="/presenteH" alt="Presente H">
-            <input class="input" type="text" id="Q8" name="questions2[]">
-            <p style="text-align: start; text-indent: 5px;">KG</p>
-        </div>
-
-    </div>
-    <div style="display: flex; justify-content: center; margin-top: 12px;">
-        <a id='btn-ok-q2' class="btn-trans" href="#" rel="modal:close">Ok</a>
-    </div>
-</div>
-
-<!-- Link to open the modal -->
-<div class="btns">
-    <h1 style="color: white;">Questionario </h1>
-    <div style="display: flex; justify-content: space-around;">
-        <a id='btn-questions1' class="btn-trans" href="#ex1" style="padding: 10px; background: #46178F; border: 6px solid #25076b69; border-bottom-left-radius: 0px;">Questão 1</a>
-        <a id='btn-questions2' class="btn-trans" href="#ex2" style="padding: 10px; background: #46178F; border: 6px solid #25076b69; border-bottom-right-radius: 0px;">Questão 2</a>
-    </div>
-</div>
-<!-- iFrame -->
-<!-- <div class="diamond" style="position: absolute; margin-top: 10%; z-index: 1;"></div> -->
 <div style="display: flex;">
-    <div class="colunaUnica iframe">
-        <div id="star-five" style="position: absolute; margin-left: 67%; margin-top: -17%; z-index: 1;"></div>
-        <div id="star-five" style="position: absolute; margin-left: -3%; margin-top: 16%; z-index: 1;"></div>
-        <div style="z-index: 2;">
-            <iframe src="https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_pt_BR.html" 
-            width="800" height="600" scrolling="no" allowfullscreen></iframe>
+    <!-- iFrame -->
+    <div style="display: flex; width: 100%;">
+        <div class="colunaUnica iframe">
+            <!--<div id="star-five" style="position: absolute; margin-left: 67%; margin-top: -17%; z-index: 1;"></div>
+            <div id="star-five" style="position: absolute; margin-left: -3%; margin-top: 16%; z-index: 1;"></div> -->
+            <div style="z-index: 2;">
+                <iframe src="https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_pt_BR.html" 
+                width="800" height="600" scrolling="no" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Link to open the modal -->
+    <div class="btns">
+        <h1 style="color: white;">Questionario </h1>
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="0" >Question 1</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="1">Question 2</button>
         </div>
     </div>
 </div>
+
+
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Modal Window</h4>
+        </div>
+        <div>
+            <div class="flex-center">
+                <img class="modal-picture presentes" src="">
+            </div>
+            <div class="flex-center">
+                <p class="modal-description"></p>
+            </div>
+        </div>
+        <div class="modal-body">
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" class="close" data-dismiss="modal">Submit</button>
+        </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
+
+    $("#myModal").on('show.bs.modal', function(event) {
+        showQuestion(event, $(this));
+    });
+
+    var questions = [
+        {
+            title: 'Titulo2',
+            pictureUrl: '/presenteA',
+            description: 'Descricao2',
+            correctAnswer: '10'
+        },
+        {
+            title: 'Titulo2',
+            pictureUrl: '/presenteB',
+            description: 'Descricao2',
+            correctAnswer: '11'
+        }
+    ];
+
+    function showQuestion(event, $modal) {
+        var button = $(event.relatedTarget);  // Button that triggered the modal
+        var num = parseInt(button.data('num'));
+        var question = questions[num];
+        $modal.find('.modal-title').text(question.title);
+        $modal.find('.modal-picture').attr('src',question.pictureUrl);
+        $modal.find('.modal-description').text(question.description);
+    }
+
+
+    /*function submit() {
+        var selected = $(".modal-body input:checked").val();
+        $("#selected").text('You selected ' + selected);
+    }*/
+
+    /*function getOptions(question) {
+        var $buttonDiv = $('<div></div>');
+        question.options.forEach(function(opt) {
+            var $label = $('<label class="radio"></label');
+            var $input = $('<input type="radio" name="opts" value="' + opt + '">');
+            $label.append($input);
+            $label.append(opt);
+            $buttonDiv.append($label);
+        });
+    return $buttonDiv;
+    }*/
 
     const correctAnswers = [20,5,15,10,2.5,50,25,7.5];
 
@@ -129,26 +135,6 @@
 
     $(".input").inputmask({
         regex: "[0-9.]*"
-    });
-    
-    $('a[href="#ex1"]').click(function(event) {
-      event.preventDefault();
-      $(this).modal({
-        fadeDuration: 400,
-        escapeClose: false,
-        clickClose: false,
-        showClose: false
-      });
-    });
-
-    $('a[href="#ex2"]').click(function(event) {
-      event.preventDefault();
-      $(this).modal({
-        fadeDuration: 400,
-        escapeClose: false,
-        clickClose: false,
-        showClose: false
-      });
     });
 
     $("input[type='text']").change(function () {
@@ -162,40 +148,22 @@
         }
     });
 
-    $('#btn-ok-q1').click(() => {
-    var answers = $('input[name^=questions1]').map(function(idx, elem) {
-        if(correctAnswers[elem.id.charAt(1) - 1] == elem.value) {
-            return true;
+    /*$('#btn-ok-q1').click(() => {
+        var answers = $('input[name^=questions1]').map(function(idx, elem) {
+            if(correctAnswers[elem.id.charAt(1) - 1] == elem.value) {
+                return true;
+            }
+            return false
+        }).get();
+        if(answers.every(allTrue)) {
+            $('#btn-questions1').animate({
+                backgroundColor: "#14980f94",
+                color: '#000'
+                }, 1000);
         }
-        return false
-    }).get();
-    if(answers.every(allTrue)) {
-        $('#btn-questions1').animate({
-            backgroundColor: "#14980f94",
-            color: '#000'
-            }, 1000);
-    }
-    });
+    });*/
 
-    $('#btn-ok-q2').click(() => {
-    var answers = $('input[name^=questions2]').map(function(idx, elem) {
-        if(correctAnswers[elem.id.charAt(1) - 1] == elem.value) {
-            return true;
-        }
-        return false
-    }).get();
-    if(answers.every(allTrue)) {
-        $('#btn-questions2').animate({
-            backgroundColor: "#14980f94",
-            color: '#000'
-            }, 1000);
-    }
-    });
-
-    function allTrue(element, index, array) {
-        return element == true;
-    }
-
+    
 </script>
 
 

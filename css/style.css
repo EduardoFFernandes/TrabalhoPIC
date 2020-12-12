@@ -73,7 +73,7 @@ body {
 }
 
 .colunaUnica {
-	width: 80%;
+	width: 100%;
 	padding: 10%;
 	flex-direction: column;
   justify-content: center;
@@ -196,6 +196,12 @@ body{
   text-decoration: none;
 }
 
+.btn {
+  padding: 10px; background: #46178F !important;
+  border: 6px solid #25076b69 !important; 
+  border-bottom-left-radius: 0px !important;
+}
+
 .btn-trans {
   background: rgba(0,0,0,0.8);
   color: #fff;
@@ -205,6 +211,7 @@ body{
   border-radius: 10px;
   white-space: nowrap;
   text-decoration: none;
+  margin: 1%;
 }
 
 .img-descritivo {
@@ -253,7 +260,7 @@ body{
   border: 1px solid #ddd;
   border-radius: 50%;
   padding: 2px;
-  width: 40%;
+  width: 15%;
 }
 
 .btns {
@@ -266,4 +273,8 @@ body{
   background: #000000;
   padding-bottom: 10px; 
   padding-top: 10px;
+}
+
+.modal-header {
+  margin-bottom: 5%;
 }
