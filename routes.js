@@ -72,9 +72,6 @@ module.exports = function(app){
     app.get('/home', (req,res) => {
         res.render('./home')
     })
-    app.get('/intrucoes', (req,res) => {
-        res.render('./intrucoes')
-    })
     app.get('/atividades', (req,res) => {
         res.render('./atividades')
     })
