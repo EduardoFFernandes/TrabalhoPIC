@@ -20,6 +20,9 @@ body {
 	background-image: url("/background");
 }
 
+.btn-trans:hover {
+  color: #000;
+}
 
 #navigationBar ul {
 	list-style-type: none;
@@ -197,13 +200,12 @@ body{
 }
 
 .btn {
-  padding: 10px; background: #46178F !important;
-  border: 6px solid #25076b69 !important; 
+  padding: 10px; background: #46178F;
+  border: 6px solid #25076b69; 
   border-bottom-left-radius: 0px !important;
 }
 
 .btn-trans {
-  background: rgba(0,0,0,0.8);
   color: #fff;
   font-weight: bold;
   font-size: 1rem;
@@ -229,7 +231,6 @@ body{
 }
 
 .input {
-  padding: 8px 8px 8px 8px;
   border: 1px solid #ccc!important;
   width: 20%;
   height: min-content;
@@ -241,7 +242,7 @@ body{
   width: 48%;
   padding: 4px 0px 4px 8px;
   display: flex;
-  align-items: center;
+  align-items: end;
 }
 
 .div-inputs {
@@ -264,6 +265,7 @@ body{
 }
 
 .btns {
+  width: min-content;
   background: #25076B;
   padding: 10px 10px 35px 10px;
 }

@@ -42,12 +42,19 @@
             </div>
         </div>
     </div>
+
     <!-- Link to open the modal -->
     <div class="btns">
         <h1 style="color: white;">Questionario </h1>
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="0" >Question 1</button>
-            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="1">Question 2</button>
+        <div class="buttons" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="0" >Questão 1</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="1" >Questão 2</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="2" >Questão 3</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="3" >Questão 4</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="4" >Questão 5</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="5" >Questão 6</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="6" >Questão 7</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="7" >Questão 8</button>
         </div>
     </div>
 </div>
@@ -62,20 +69,27 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h4 class="modal-title">Modal Window</h4>
         </div>
-        <div>
-            <div class="flex-center">
-                <img class="modal-picture presentes" src="">
-            </div>
-            <div class="flex-center">
-                <p class="modal-description"></p>
-            </div>
+        <div class="flex-center">
+            <img class="modal-picture presentes" src="">
         </div>
         <div class="modal-body">
+            <div>
+                <p class="modal-description" style="text-indent: 0px !important;"></p>
+            </div>
+            <div class="div-input">
+                <p style="text-align: start; text-indent: 5px;">Resposta</p>
+                <input class="input modal-question" type="text" name="">
+                <input class="modal-answer" type="text" style="display:none">
+            </div>
         </div>
 
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" class="close" data-dismiss="modal">Submit</button>
+            <div style="display: flex; justify-content: center; margin-top: 12px;">
+                <input id="buttonId" type="text" style="display: none;">
+                <a class="btn-trans btn" href="#" data-dismiss="modal" onclick="responder()">Responder</a>
+            </div>
         </div>
+    </div>
         </div>
     </div>
 </div>
@@ -83,63 +97,109 @@
 
 <script>
 
+    var questions = [
+        {
+            title: 'Questão 1',
+            pictureUrl: '/presenteA',
+            description: 'Qual a massa(Em quilos) do Presente A?',
+            answer: '20'
+        },
+        {
+            title: 'Questão 2',
+            pictureUrl: '/presenteB',
+            description: 'Qual a massa(Em quilos) do Presente B?',
+            answer: '5'
+        },
+        {
+            title: 'Questão 3',
+            pictureUrl: '/presenteC',
+            description: 'Qual a massa(Em quilos) do Presente C?',
+            answer: '15'
+        },
+        {
+            title: 'Questão 4',
+            pictureUrl: '/presenteD',
+            description: 'Qual a massa(Em quilos) do Presente D?',
+            answer: '10'
+        },
+        {
+            title: 'Questão 5',
+            pictureUrl: '/presenteE',
+            description: 'Qual a massa(Em quilos) do Presente E?',
+            answer: '2.5'
+        },
+        {
+            title: 'Questão 6',
+            pictureUrl: '/presenteF',
+            description: 'Qual a massa(Em quilos) do Presente F?',
+            answer: '50'
+        },
+        {
+            title: 'Questão 7',
+            pictureUrl: '/presenteG',
+            description: 'Qual a massa(Em quilos) do Presente G?',
+            answer: '25'
+        },
+        {
+            title: 'Questão 8',
+            pictureUrl: '/presenteH',
+            description: 'Qual a massa(Em quilos) do Presente H?',
+            answer: '7.5'
+        }
+    ];
+
     $("#myModal").on('show.bs.modal', function(event) {
         showQuestion(event, $(this));
     });
 
-    var questions = [
-        {
-            title: 'Titulo2',
-            pictureUrl: '/presenteA',
-            description: 'Descricao2',
-            correctAnswer: '10'
-        },
-        {
-            title: 'Titulo2',
-            pictureUrl: '/presenteB',
-            description: 'Descricao2',
-            correctAnswer: '11'
-        }
-    ];
-
     function showQuestion(event, $modal) {
+
+        $modal.find('.modal-answer').val("");
+        $modal.find('.modal-question').val("");
+        $modal.find('.modal-question').css("background", "#fff")
+
         var button = $(event.relatedTarget);  // Button that triggered the modal
         var num = parseInt(button.data('num'));
         var question = questions[num];
         $modal.find('.modal-title').text(question.title);
         $modal.find('.modal-picture').attr('src',question.pictureUrl);
         $modal.find('.modal-description').text(question.description);
+        $modal.find('.modal-answer').val(question.answer); 
+        $modal.find('#buttonId').val(num); 
+        $modal.find('.modal-question').change((e) => {
+            var input = e.target;
+            if(e.target.value == $modal.find('.modal-answer').val()) {
+                input.animate({backgroundColor: "#14980f94"}, 1000).onfinish = () => {
+                    $(input).css("background", "#14980f94");
+                };
+            } else {
+                $(input).css("background", "#ac000094")
+                $(input).effect( "shake", {distance: 5, times: 2} , "slow");
+            }
+        });
     }
 
+    function responder() {
+        var button = $('.buttons').children()[$('#buttonId').val()]
+        var answer = $('.modal-answer').val(); 
+        var question = $('.modal-question').val(); 
 
-    /*function submit() {
-        var selected = $(".modal-body input:checked").val();
-        $("#selected").text('You selected ' + selected);
-    }*/
+        if(answer == question){
+            button.animate({backgroundColor: "#14980f94", color: '#000'}, 1000).onfinish = () => {
+                $(button).css("background", "#14980f94");
+                $(button).css("color", "#000");
+            };
+        } else {
+            button.animate({backgroundColor: "#ac000094", color: '#000'}, 1000).onfinish = () => {
+                $(button).css("background", "#ac000094");
+            };
+        }
+    }
 
-    /*function getOptions(question) {
-        var $buttonDiv = $('<div></div>');
-        question.options.forEach(function(opt) {
-            var $label = $('<label class="radio"></label');
-            var $input = $('<input type="radio" name="opts" value="' + opt + '">');
-            $label.append($input);
-            $label.append(opt);
-            $buttonDiv.append($label);
-        });
-    return $buttonDiv;
-    }*/
-
-    const correctAnswers = [20,5,15,10,2.5,50,25,7.5];
-
-    $('#navigationBar').children(0).children(1)[1].style.opacity = "50%"
-
-    $(".input").inputmask({
-        regex: "[0-9.]*"
-    });
-
+    /*
     $("input[type='text']").change(function () {
         var id = this.id.charAt(1)
-        if(correctAnswers[this.id.charAt(1) - 1] == this.value) {
+        if(answers[this.id.charAt(1) - 1] == this.value) {
             $(this).animate({backgroundColor: "#14980f94"}, 1000);
 
         } else {
@@ -147,19 +207,25 @@
             $(this).effect( "shake", {distance: 5} , "slow");
         }
     });
+    */
+
+
+    $('#navigationBar').children(0).children(1)[1].style.opacity = "50%"
+
+    $(".input").inputmask({
+        regex: "[0-9.]*"
+    });
+
 
     /*$('#btn-ok-q1').click(() => {
         var answers = $('input[name^=questions1]').map(function(idx, elem) {
-            if(correctAnswers[elem.id.charAt(1) - 1] == elem.value) {
+            if(answers[elem.id.charAt(1) - 1] == elem.value) {
                 return true;
             }
             return false
         }).get();
         if(answers.every(allTrue)) {
-            $('#btn-questions1').animate({
-                backgroundColor: "#14980f94",
-                color: '#000'
-                }, 1000);
+            
         }
     });*/
 
