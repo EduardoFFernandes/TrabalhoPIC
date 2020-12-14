@@ -65,6 +65,10 @@ module.exports = function(app){
         res.sendFile(__dirname + '/content/Presente H.png')
     })
 
+    app.get('/questao/',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/.png')
+    })
+
     app.get('/',(req,res) => {
         res.render('./home')
     })
