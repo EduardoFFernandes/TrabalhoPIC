@@ -55,6 +55,12 @@
             <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="5" >Questão 6</button>
             <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="6" >Questão 7</button>
             <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="7" >Questão 8</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="8" >Questão 9</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="9" >Questão 10</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="10" >Questão 11</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="11" >Questão 12</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="12" >Questão 13</button>
+            <button type="button" class="btn-trans btn" data-toggle="modal" data-target="#myModal" data-num="13" >Questão 14</button>
         </div>
     </div>
 </div>
@@ -145,6 +151,42 @@
             pictureUrl: '/presenteH',
             description: 'Qual a massa(Em quilos) do Presente H?',
             answer: '7.5'
+        },
+        {
+            title: 'Questão 9',
+            pictureUrl: '/questao9',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '30'
+        },
+        {
+            title: 'Questão 10',
+            pictureUrl: '/questao10',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '15'
+        },
+        {
+            title: 'Questão 11',
+            pictureUrl: '/questao11',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '97.5'
+        },
+        {
+            title: 'Questão 12',
+            pictureUrl: '/questao12',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '37.5'
+        },
+        {
+            title: 'Questão 13',
+            pictureUrl: '/questao13',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '15'
+        },
+        {
+            title: 'Questão 14',
+            pictureUrl: '/questao14',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '10'
         }
     ];
 
@@ -163,6 +205,11 @@
         var question = questions[num];
         $modal.find('.modal-title').text(question.title);
         $modal.find('.modal-picture').attr('src',question.pictureUrl);
+        if(num >= 0 && num <= 8){
+            $($modal.find('.modal-picture')).css('width','10%');
+        } else {
+            $($modal.find('.modal-picture')).css('width','80%');
+        }
         $modal.find('.modal-description').text(question.description);
         $modal.find('.modal-answer').val(question.answer); 
         $modal.find('#buttonId').val(num); 

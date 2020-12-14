@@ -259,9 +259,8 @@ body{
 
 .presentes {
   border: 1px solid #ddd;
-  border-radius: 50%;
+  border-radius: 5%;
   padding: 2px;
-  width: 15%;
 }
 
 .btns {

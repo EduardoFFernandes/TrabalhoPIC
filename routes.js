@@ -40,6 +40,21 @@ module.exports = function(app){
         res.sendFile(__dirname + '/content/Imagem_4.png')
     })
 
+    app.get('/',(req,res) => {
+        res.render('./home')
+    })
+    // TrabalhoPIC
+    app.get('/home', (req,res) => {
+        res.render('./home')
+    })
+    app.get('/atividades', (req,res) => {
+        res.render('./atividades')
+    })
+    app.get('/sobre', (req,res) => {
+        res.render('./sobre')
+    })
+
+    // Content
     app.get('/presenteA',(req,res) => {
         res.sendFile(__dirname + '/content/Presente A.png')
     })
@@ -64,27 +79,22 @@ module.exports = function(app){
     app.get('/presenteH',(req,res) => {
         res.sendFile(__dirname + '/content/Presente H.png')
     })
-
-    app.get('/questao/',(req,res) => {
-        res.sendFile(__dirname + '/content/questoes/.png')
+    app.get('/questao9',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/9.png')
     })
-
-    app.get('/',(req,res) => {
-        res.render('./home')
+    app.get('/questao10',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/10.png')
     })
-    // TrabalhoPIC
-    app.get('/home', (req,res) => {
-        res.render('./home')
+    app.get('/questao11',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/11.png')
     })
-    app.get('/atividades', (req,res) => {
-        res.render('./atividades')
+    app.get('/questao12',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/12.png')
     })
-    app.get('/sobre', (req,res) => {
-        res.render('./sobre')
+    app.get('/questao13',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/13.png')
     })
-
-    app.get('/questao1', (req,res) => {
-        res.sendFile(__dirname + '/views/modals/questao1.html')
+    app.get('/questao14',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/14.png')
     })
-
 }
