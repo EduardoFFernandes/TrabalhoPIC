@@ -117,6 +117,54 @@ function getQuestions() {
             pictureUrl: '/questao14',
             description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
             answer: '10'
+        },
+        {
+            title: 'Questão 15',
+            pictureUrl: '/questao15',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '60'
+        },
+        {
+            title: 'Questão 16',
+            pictureUrl: '/questao16',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '30'
+        },
+        {
+            title: 'Questão 17',
+            pictureUrl: '/questao17',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '82.5'
+        },
+        {
+            title: 'Questão 18',
+            pictureUrl: '/questao18',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '30'
+        },
+        {
+            title: 'Questão 19',
+            pictureUrl: '/questao19',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '55'
+        },
+        {
+            title: 'Questão 20',
+            pictureUrl: '/questao20',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '37.5'
+        },
+        {
+            title: 'Questão 21',
+            pictureUrl: '/questao21',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '137.5'
+        },
+        {
+            title: 'Questão 22',
+            pictureUrl: '/questao22',
+            description: 'Qual a massa(Em quilos) que deve ficar no local indicado pela seta para equilibrar a gangorra?',
+            answer: '92.5'
         }
     ];
 return questions;

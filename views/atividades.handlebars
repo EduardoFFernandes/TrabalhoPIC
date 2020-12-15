@@ -97,12 +97,14 @@
         showQuestion(event, $(this));
     });
 
+    $("#myModal").on('hidden.bs.modal', function(event) {
+        $('.modal-question').stop();
+        $('.modal-answer').val("");
+        $('.modal-question').val("");
+        $('.modal-question').css("background", "#fff")
+    });
+
     function showQuestion(event, $modal) {
-
-        $modal.find('.modal-answer').val("");
-        $modal.find('.modal-question').val("");
-        $modal.find('.modal-question').css("background", "#fff")
-
         var button = $(event.relatedTarget);  // Button that triggered the modal
         var num = parseInt(button.data('num'));
         var question = questions[num];
@@ -119,12 +121,13 @@
         $modal.find('.modal-question').change((e) => {
             var input = e.target;
             if(e.target.value == $modal.find('.modal-answer').val()) {
-                input.animate({backgroundColor: "#14980f94"}, 1000).onfinish = () => {
+                input.animate({backgroundColor: "#14980f94"}, 100).onfinish = () => {
                     $(input).css("background", "#14980f94");
                 };
             } else {
-                $(input).css("background", "#ac000094")
-                $(input).effect( "shake", {distance: 5, times: 2} , "slow");
+                input.animate({backgroundColor: "#ac000094"}, 100).onfinish = () => {
+                    $(input).css("background", "#ac000094");
+                };
             }
         });
     }

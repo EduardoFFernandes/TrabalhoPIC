@@ -97,4 +97,28 @@ module.exports = function(app){
     app.get('/questao14',(req,res) => {
         res.sendFile(__dirname + '/content/questoes/14.png')
     })
+    app.get('/questao15',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/15.png')
+    })
+    app.get('/questao16',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/16.png')
+    })
+    app.get('/questao17',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/17.png')
+    })
+    app.get('/questao18',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/18.png')
+    })
+    app.get('/questao19',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/19.png')
+    })
+    app.get('/questao20',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/20.png')
+    })
+    app.get('/questao21',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/21.png')
+    })
+    app.get('/questao22',(req,res) => {
+        res.sendFile(__dirname + '/content/questoes/22.png')
+    })
 }
