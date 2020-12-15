@@ -3,11 +3,11 @@ function muteUnmute() {
     var a = document.getElementsByClassName('btn-trans')
     if(video.muted) {
         video.muted = false;
-        a[0].innerText = 'Mute'
+        a[0].innerText = 'Pausar'
         video.play()
     } else {
         video.muted = true;
-        a[0].innerText = 'Play'
+        a[0].innerText = 'Reproduzir'
         video.pause()
     }
 }
@@ -167,5 +167,50 @@ function getQuestions() {
             answer: '92.5'
         }
     ];
-return questions;
+    return questions;
+}
+
+function showQuestion(event, $modal) {
+    var button = $(event.relatedTarget);  // Button that triggered the modal
+    var num = parseInt(button.data('num'));
+    var question = questions[num];
+    $modal.find('.modal-title').text(question.title);
+    $modal.find('.modal-picture').attr('src',question.pictureUrl);
+    if(num >= 0 && num <= 7){
+        $($modal.find('.modal-picture')).css('width','10%');
+    } else {
+        $($modal.find('.modal-picture')).css('width','80%');
+    }
+    $modal.find('.modal-description').text(question.description);
+    $modal.find('.modal-answer').val(question.answer); 
+    $modal.find('#buttonId').val(num); 
+    $modal.find('.modal-question').change((e) => {
+        var input = e.target;
+        if(e.target.value == $modal.find('.modal-answer').val()) {
+            input.animate({backgroundColor: "#14980f94"}, 100).onfinish = () => {
+                $(input).css("background", "#14980f94");
+            };
+        } else {
+            input.animate({backgroundColor: "#ac000094"}, 100).onfinish = () => {
+                $(input).css("background", "#ac000094");
+            };
+        }
+    });
+}
+
+function responder() {
+    var button = $('.buttons').children()[$('#buttonId').val()]
+    var answer = $('.modal-answer').val(); 
+    var question = $('.modal-question').val(); 
+
+    if(answer == question){
+        button.animate({backgroundColor: "#14980f94", color: '#000'}, 1000).onfinish = () => {
+            $(button).css("background", "#14980f94");
+            $(button).css("color", "#000");
+        };
+    } else {
+        button.animate({backgroundColor: "#ac000094", color: '#000'}, 1000).onfinish = () => {
+            $(button).css("background", "#ac000094");
+        };
+    }
 }
