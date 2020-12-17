@@ -11,6 +11,18 @@ function muteUnmute() {
         video.pause()
     }
 }
+function goFullscreen(id) {
+    var element = document.getElementById(id);       
+    if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+        document.getElementsByClassName('btn-trans')[0].innerText = 'Pausar'
+        element.muted = false;
+    } else if (element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen();
+        document.getElementsByClassName('btn-trans')[0].innerText = 'Pausar'
+        element.muted = false;
+    }  
+}
 
 function allTrue(element, index, array) {
     return element == true;

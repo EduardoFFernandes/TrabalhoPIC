@@ -216,6 +216,17 @@ body{
   margin: 1%;
 }
 
+.btn-trans2 {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: .375rem .625rem;
+  border-radius: 10px;
+  white-space: nowrap;
+  text-decoration: none;
+  margin: 1%;
+}
+
 .img-descritivo {
   border:2px solid #fff;
   -moz-box-shadow: 10px 10px 5px #ccc;
