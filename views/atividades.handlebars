@@ -11,7 +11,7 @@
                     aplicada sobre ela. Suas principais funções são: elevar objetos pesados, recortar, movimentar etc.</p>        
             </div>
             <div class="colunaDupla center">
-                <h1 style="color: white;">Video Tutorial</h1>
+                <h1 style="color: white;">Um breve tutorial</h1>
                 <div class="video-wrap" style="width: 524px; display: flex; align-items: baseline;">
                     <video width="524" height="295" autobuffer autoplay muted webkit-playsinline="true" id="videoIntroducao"
                     data-lzy-src="/tutorial" 
@@ -20,8 +20,9 @@
                             <img alt="Video" width="524" height="295" />
                         </div>
                     </video>
-                    <a href="javascript:;" onclick="muteUnmute()" class="btn-trans" style="position: relative; right: 30%; top: -5%;">
-                        Unmute
+                    <a href="javascript:;" onclick="muteUnmute()" class="btn-trans" 
+                    style="position: relative; right: 30%; top: -5%; background: #46178F; text-decoration: none;">
+                        Desmutar
                     </a>
                 </div>
             </div>
@@ -44,7 +45,7 @@
 
     <!-- Link to open the modal -->
     <div class="btns">
-        <h1 style="color: white;">Questionario </h1>
+        <h1 style="color: white;">Questionário </h1>
         <div class="buttons" style="display: flex; justify-content: space-around; flex-wrap: wrap;"></div>
     </div>
 </div>
@@ -57,7 +58,7 @@
         <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Modal Window</h4>
+            <h4 class="modal-title"></h4>
         </div>
         <div class="flex-center">
             <img class="modal-picture presentes" src="">
@@ -83,11 +84,14 @@
         </div>
     </div>
 </div>
-
-
 <script>
     const questions = getQuestions();
 
+    $('#navigationBar').children(0).children(1)[1].style.opacity = "50%"
+
+    $(".input").inputmask({
+        regex: "[0-9.]*"
+    });
     for (var i = 0; i < questions.length; i++) {
         addButton(i);
     }
@@ -102,57 +106,4 @@
         $('.modal-question').val("");
         $('.modal-question').css("background", "#fff")
     });
-
-    function showQuestion(event, $modal) {
-        var button = $(event.relatedTarget);  // Button that triggered the modal
-        var num = parseInt(button.data('num'));
-        var question = questions[num];
-        $modal.find('.modal-title').text(question.title);
-        $modal.find('.modal-picture').attr('src',question.pictureUrl);
-        if(num >= 0 && num <= 7){
-            $($modal.find('.modal-picture')).css('width','10%');
-        } else {
-            $($modal.find('.modal-picture')).css('width','80%');
-        }
-        $modal.find('.modal-description').text(question.description);
-        $modal.find('.modal-answer').val(question.answer); 
-        $modal.find('#buttonId').val(num); 
-        $modal.find('.modal-question').change((e) => {
-            var input = e.target;
-            if(e.target.value == $modal.find('.modal-answer').val()) {
-                input.animate({backgroundColor: "#14980f94"}, 100).onfinish = () => {
-                    $(input).css("background", "#14980f94");
-                };
-            } else {
-                input.animate({backgroundColor: "#ac000094"}, 100).onfinish = () => {
-                    $(input).css("background", "#ac000094");
-                };
-            }
-        });
-    }
-
-    function responder() {
-        var button = $('.buttons').children()[$('#buttonId').val()]
-        var answer = $('.modal-answer').val(); 
-        var question = $('.modal-question').val(); 
-
-        if(answer == question){
-            button.animate({backgroundColor: "#14980f94", color: '#000'}, 1000).onfinish = () => {
-                $(button).css("background", "#14980f94");
-                $(button).css("color", "#000");
-            };
-        } else {
-            button.animate({backgroundColor: "#ac000094", color: '#000'}, 1000).onfinish = () => {
-                $(button).css("background", "#ac000094");
-            };
-        }
-    }
-    $('#navigationBar').children(0).children(1)[1].style.opacity = "50%"
-
-    $(".input").inputmask({
-        regex: "[0-9.]*"
-    });
 </script>
-
-
-
